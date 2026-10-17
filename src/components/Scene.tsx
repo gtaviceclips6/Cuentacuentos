@@ -4,12 +4,13 @@ import { Animated, Easing, Image, StyleSheet, Text, View, type ImageSourcePropTy
 import { IMAGES } from "../data/images";
 import FACE_SLOTS from "../data/faceSlots.json";
 import type { Tale } from "../data/tales";
-import { FACE_OVAL } from "../lib/faceOval";
+import { DEFAULT_FIT, type Fit } from "../lib/faceCrop";
 import { nameOf, type CastConfig } from "../state/cast";
 import { color, font, hsl, hueOf } from "../theme";
 import { Face } from "./Face";
 
-type Slot = { id: string; x: number; y: number; w: number; h: number };
+/** Cara del dibujo: recuadro, punto entre los ojos (ex, ey), inclinación (a) y color de la piel pintada. */
+type Slot = { id: string; x: number; y: number; w: number; h: number; ex?: number; ey?: number; a?: number; skin?: string };
 const SLOTS = FACE_SLOTS as Record<string, Record<string, Slot[]>>;
 
 /**
@@ -94,10 +95,13 @@ function Illustrated({ tale, index, cfg, img, still }: { tale: Tale; index: numb
           <FacePatch
             key={s.id}
             uri={cfg[s.id]!.photo!}
-            x={dx + s.x * iw * k}
-            y={dy + s.y * ih * k}
+            fit={cfg[s.id]!.fit ?? DEFAULT_FIT}
+            eyeX={dx + (s.ex ?? s.x + s.w / 2) * iw * k}
+            eyeY={dy + (s.ey ?? s.y + s.h * 0.39) * ih * k}
             w={s.w * iw * k}
             h={s.h * ih * k}
+            angle={s.a ?? 0}
+            skin={s.skin ?? "#efc2a6"}
           />
         ))}
       </Animated.View>
@@ -117,28 +121,76 @@ function Illustrated({ tale, index, cfg, img, still }: { tale: Tale; index: numb
   );
 }
 
+// Cómo se encaja la foto en la cara pintada (ajustado comparando con los dibujos de La olla mágica).
+const PHOTO_FACE = 1.9; // en una foto, ancho de la cara ≈ 1,9 × distancia entre los ojos
+const MASK = { down: 0.22, rx: 0.47, ry: 0.41 }; // óvalo: algo por debajo de los ojos; de las cejas a la barbilla
+const RINGS = 6; // capas del borde difuminado
+const EDGE = 0.3; // ancho del difuminado (parte del radio)
+const TINT = 0.55; // cuánto toma la foto el color de la piel pintada
+// Opacidad de cada capa para que, apiladas, el borde vaya de transparente a opaco suavemente.
+const RING_OPACITY = (() => {
+  const c = Array.from({ length: RINGS }, (_, i) => {
+    const t = (i + 1) / RINGS;
+    return t * t * (3 - 2 * t);
+  });
+  return c.map((ci, i) => (i === 0 ? ci : 1 - (1 - ci) / (1 - c[i - 1])));
+})();
+
 /**
- * La cara de la foto, recortada en óvalo y colocada sobre la cara del personaje.
- * (x, y, w, h) es la cara del dibujo en la pantalla; la foto se escala para que su óvalo la cubra.
+ * La cara de la foto metida en la cara del dibujo:
+ * - se coloca y se gira por los ojos, y se escala al ancho de la cara pintada;
+ * - solo se ve un óvalo de las cejas a la barbilla, con el borde difuminado (el pelo y las orejas son los del dibujo);
+ * - toma el color de la piel pintada y unos coloretes, para que parezca pintada en el mismo cuento.
+ * (eyeX, eyeY): punto entre los ojos del dibujo en pantalla; w, h: tamaño de la cara pintada.
  */
-function FacePatch({ uri, x, y, w, h }: { uri: string; x: number; y: number; w: number; h: number }) {
-  const ow = w * 1.0; // óvalo del tamaño de la cara del dibujo; el pelo dibujado la enmarca
-  const oh = h * 1.26;
-  const cx = x + w / 2;
-  const cy = y + h / 2 - h * 0.06; // un poco hacia arriba: frente incluida
-  const S = (ow / (FACE_OVAL.rx * 2)) * 1.12; // la cara de la foto llena el óvalo (se ve menos fondo de la foto)
-  // Círculo estirado en vertical = óvalo; dentro se deshace el estiramiento para no deformar la foto.
+function FacePatch({ uri, fit, eyeX, eyeY, w, h, angle, skin }: {
+  uri: string; fit: Fit; eyeX: number; eyeY: number; w: number; h: number; angle: number; skin: string;
+}) {
+  const rx = MASK.rx * w;
+  const ry = MASK.ry * h;
+  const R = rx; // se dibuja un círculo de radio rx y se estira en vertical hasta ry
+  // Centro del óvalo: por debajo de los ojos, siguiendo la inclinación de la cara.
+  const ocx = eyeX - Math.sin(angle) * MASK.down * h;
+  const ocy = eyeY + Math.cos(angle) * MASK.down * h;
+  // Dentro del óvalo (ya girado), los ojos están justo encima del centro.
+  const fx = R;
+  const fy = R - MASK.down * h;
+  const P = w / (PHOTO_FACE * fit.d); // lado de la foto en pantalla
+  const L = P * 1.5; // marco para girar la foto alrededor de sus ojos
+
+  const content = (
+    <View style={[StyleSheet.absoluteFill, { transform: [{ scaleY: rx / ry }] }]}>
+      <View style={{ position: "absolute", left: fx - L, top: fy - L, width: 2 * L, height: 2 * L, transform: [{ rotate: `${-fit.a}rad` }] }}>
+        <Image source={{ uri }} style={{ position: "absolute", width: P, height: P, left: L - fit.ex * P, top: L - fit.ey * P }} />
+      </View>
+      <View style={[StyleSheet.absoluteFill, { backgroundColor: skin, opacity: TINT, mixBlendMode: "color" }]} />
+      {[-1, 1].map((side) => (
+        <View key={side} style={{ position: "absolute", left: fx + side * 0.26 * w, top: fy + 0.22 * h }}>
+          {[0.2, 0.14, 0.08].map((r) => (
+            <View key={r} style={{ position: "absolute", left: -r * w, top: -r * w, width: 2 * r * w, height: 2 * r * w, borderRadius: r * w, backgroundColor: "#e6787a", opacity: 0.1 }} />
+          ))}
+        </View>
+      ))}
+    </View>
+  );
+
   return (
     <View
       pointerEvents="none"
-      style={[styles.patch, { left: cx - ow / 2, top: cy - ow / 2, width: ow, height: ow, borderRadius: ow / 2, transform: [{ scaleY: oh / ow }] }]}
+      style={{
+        position: "absolute", left: ocx - R, top: ocy - R, width: 2 * R, height: 2 * R,
+        transform: [{ rotate: `${angle}rad` }, { scaleY: ry / rx }],
+        filter: "contrast(1.15) saturate(0.9) brightness(1.04)",
+      }}
     >
-      <View style={[StyleSheet.absoluteFill, { transform: [{ scaleY: ow / oh }] }]}>
-        <Image
-          source={{ uri }}
-          style={{ position: "absolute", width: S, height: S, left: ow / 2 - FACE_OVAL.cx * S, top: ow / 2 - FACE_OVAL.cy * S }}
-        />
-      </View>
+      {RING_OPACITY.map((o, i) => {
+        const r = R * (1 - (EDGE * i) / (RINGS - 1));
+        return (
+          <View key={i} style={{ position: "absolute", left: R - r, top: R - r, width: 2 * r, height: 2 * r, borderRadius: r, overflow: "hidden", opacity: o, isolation: "isolate" }}>
+            <View style={{ position: "absolute", left: r - R, top: r - R, width: 2 * R, height: 2 * R }}>{content}</View>
+          </View>
+        );
+      })}
     </View>
   );
 }
@@ -147,7 +199,6 @@ const styles = StyleSheet.create({
   faces: { position: "absolute", left: 0, right: 0, bottom: "16%", flexDirection: "row", justifyContent: "center", gap: 18 },
   face: { alignItems: "center", gap: 6, maxWidth: 110 },
   medals: { position: "absolute", left: 12, bottom: 30, flexDirection: "row", gap: 10 },
-  patch: { position: "absolute", overflow: "hidden" },
   label: { fontFamily: font.readBold, fontSize: 14, color: color.ink, backgroundColor: "rgba(255,255,255,0.85)", borderRadius: 10, paddingHorizontal: 8, paddingVertical: 2, overflow: "hidden" },
   pending: { position: "absolute", left: 16, bottom: 14, fontFamily: font.read, fontSize: 12, color: color.ink, opacity: 0.6 },
 });

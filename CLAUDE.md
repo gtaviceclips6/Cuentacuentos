@@ -31,8 +31,16 @@ Este repositorio es la fuente de verdad del código. Las decisiones de producto 
 - La voz usa `expo-speech` (voz del sistema). El soplido usa el micrófono con `expo-audio` solo para medir el volumen; no se graba nada.
 - Fotos: cualquier foto; `src/lib/faceCrop.ts` busca la cara con ML Kit (en el móvil) y la recorta. El reparto y las caras se guardan en el móvil (`src/state/storage.ts`).
 
-## Publicar (el usuario no tiene ordenador: todo desde el sandbox de Expo)
+## Publicar (el usuario no tiene ordenador)
 
+- Proyecto de Expo `8a4b0da5-27a1-4f75-b528-87088f330d64` (equipo gtaviceclips6s-team), enlazado con el repo de GitHub.
 - La app de prueba es un APK propio (perfil `preview`, canal `preview`), no Expo Go.
-- `runtimeVersion` usa `fingerprint`: cambios solo de JS/textos/imágenes → `eas update --channel preview` (llega al abrir la app). Añadir o quitar una librería nativa → nuevo `eas build -p android --profile preview` y reinstalar.
+- Para fabricarla: subir a GitHub y lanzar el flujo `.eas/workflows/app-android.yml` (gasta créditos de build, no minutos de CI). El APK nuevo se instala encima del anterior sin borrar nada (misma firma).
+- Los minutos gratis de CI (sandboxes, `eas update` en flujos) se renuevan el día 1 de cada mes.
+- `runtimeVersion` usa `fingerprint`: cambios solo de JS/textos/imágenes → `eas update --channel preview` (llega al abrir la app). Añadir o quitar una librería nativa → nuevo build y reinstalar.
 - `.npmrc` lleva `legacy-peer-deps=true`; el lock que suba EAS debe generarse con él.
+
+## Caras en los dibujos
+
+- `python3 tools/caras-dibujos.py` busca las caras de cada dibujo (YuNet) y guarda en `src/data/faceSlots.json` el recuadro, el punto entre los ojos, la inclinación y el color de la piel pintada. Repetirlo siempre que se añada o cambie un dibujo.
+- En el móvil, ML Kit guarda dónde están los ojos de la foto (`fit` en el reparto). `FacePatch` (en `Scene.tsx`) encaja la foto por los ojos, enseña solo un óvalo de cejas a barbilla con el borde difuminado y la tiñe con el color de la piel pintada.

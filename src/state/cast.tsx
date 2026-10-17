@@ -2,10 +2,12 @@
 // Las fotos se quedan en el móvil (solo se guarda la ruta local).
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import type { CastMember, Tale } from "../data/tales";
+import type { Fit } from "../lib/faceCrop";
 import { loadCast, saveCast } from "./storage";
 
 export type Mode = "cara" | "ambos" | "nombre"; // solo cara (por defecto) · cara y nombre · solo nombre
-export type Role = { mode: Mode; name: string; photo: string | null };
+/** fit: dónde están los ojos en la foto recortada (para encajarla en el dibujo). */
+export type Role = { mode: Mode; name: string; photo: string | null; fit?: Fit | null };
 export type CastConfig = Record<string, Role>;
 
 type Ctx = {

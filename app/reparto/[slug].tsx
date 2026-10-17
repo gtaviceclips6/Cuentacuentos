@@ -5,7 +5,7 @@ import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, 
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Face } from "../../src/components/Face";
 import { FaceEditor } from "../../src/components/FaceEditor";
-import { prepareFace, renderFace, type Prepared, type Square } from "../../src/lib/faceCrop";
+import { fitFor, prepareFace, renderFace, type Prepared, type Square } from "../../src/lib/faceCrop";
 import { keepPhoto } from "../../src/state/storage";
 import { taleBySlug } from "../../src/data/tales";
 import { useCast, type Mode } from "../../src/state/cast";
@@ -52,7 +52,7 @@ export default function Reparto() {
     if (!editing) return;
     try {
       const out = await renderFace(editing.prepared, s);
-      cast.set(tale!.slug, editing.id, { photo: keepPhoto(out, tale!.slug, editing.id, cfg[editing.id]?.photo) });
+      cast.set(tale!.slug, editing.id, { photo: keepPhoto(out, tale!.slug, editing.id, cfg[editing.id]?.photo), fit: fitFor(editing.prepared, s) });
     } catch {
       setNotice("No he podido guardar esa cara. Prueba otra vez.");
     }

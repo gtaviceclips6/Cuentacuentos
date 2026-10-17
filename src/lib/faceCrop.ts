@@ -12,8 +12,16 @@ const OUT = 512;
 /** El recuadro de cara de ML Kit ocupa este trozo del lado del recorte. */
 const FACE_BOX = 0.59;
 
-export type Prepared = { uri: string; width: number; height: number; square: Square; found: boolean };
+type Pt = { x: number; y: number };
+export type Prepared = { uri: string; width: number; height: number; square: Square; found: boolean; eyes: { l: Pt; r: Pt } | null };
 export type Square = { x: number; y: number; side: number };
+/**
+ * Dónde está la cara dentro del recorte (en fracciones de su lado): punto entre los ojos (ex, ey),
+ * distancia entre los ojos (d) e inclinación (a, radianes). Con esto se encaja en el dibujo.
+ */
+export type Fit = { ex: number; ey: number; d: number; a: number };
+/** Si no se encontraron los ojos: lo normal cuando la cara está dentro del óvalo guía. */
+export const DEFAULT_FIT: Fit = { ex: 0.5, ey: 0.48, d: 0.27, a: 0 };
 
 /**
  * Prepara cualquier foto de la galería: la endereza, la reduce y busca la cara (ML Kit, en el móvil).
@@ -29,10 +37,19 @@ export async function prepareFace(uri: string): Promise<Prepared> {
   const H = work.height;
 
   let face: { left: number; top: number; width: number; height: number } | null = null;
+  let eyes: { l: Pt; r: Pt } | null = null;
   try {
-    const faces = await FaceDetection.detect(work.uri, { performanceMode: "accurate", minFaceSize: 0.05 });
+    const faces = await FaceDetection.detect(work.uri, { performanceMode: "accurate", landmarkMode: "all", minFaceSize: 0.05 } as never);
+    let best: (typeof faces)[number] | null = null;
     for (const f of faces) {
-      if (!face || f.frame.width * f.frame.height > face.width * face.height) face = f.frame;
+      if (!best || f.frame.width * f.frame.height > best.frame.width * best.frame.height) best = f;
+    }
+    if (best) {
+      face = best.frame;
+      const lm = (best as unknown as { landmarks?: Record<string, { position?: Pt } | undefined> }).landmarks;
+      const a = lm?.leftEye?.position;
+      const b = lm?.rightEye?.position;
+      if (a && b && Math.abs(a.x - b.x) > 4) eyes = a.x < b.x ? { l: a, r: b } : { l: b, r: a };
     }
   } catch {
     face = null;
@@ -48,13 +65,29 @@ export async function prepareFace(uri: string): Promise<Prepared> {
     const side = Math.min(W, H) * 0.7;
     sq = { side, x: (W - side) / 2, y: (H - side) * 0.3 };
   }
-  return { uri: work.uri, width: W, height: H, square: clampSquare(sq, W, H), found: !!face };
+  return { uri: work.uri, width: W, height: H, square: clampSquare(sq, W, H), found: !!face, eyes };
 }
 
 /** Mantiene el cuadrado dentro de la foto. */
 export function clampSquare(s: Square, W: number, H: number): Square {
   const side = Math.max(32, Math.min(s.side, W, H));
   return { side, x: Math.max(0, Math.min(W - side, s.x)), y: Math.max(0, Math.min(H - side, s.y)) };
+}
+
+/** Dónde quedan los ojos dentro del cuadrado elegido. */
+export function fitFor(p: Prepared, s: Square): Fit {
+  const c = clampSquare(s, p.width, p.height);
+  if (!p.eyes) return DEFAULT_FIT;
+  const { l, r } = p.eyes;
+  const fit = {
+    ex: ((l.x + r.x) / 2 - c.x) / c.side,
+    ey: ((l.y + r.y) / 2 - c.y) / c.side,
+    d: Math.hypot(r.x - l.x, r.y - l.y) / c.side,
+    a: Math.atan2(r.y - l.y, r.x - l.x),
+  };
+  // Si los ojos se han quedado fuera del recorte, mejor lo normal.
+  if (fit.ex < 0.1 || fit.ex > 0.9 || fit.ey < 0.1 || fit.ey > 0.9 || fit.d < 0.05) return DEFAULT_FIT;
+  return fit;
 }
 
 /** Recorta el cuadrado elegido y lo guarda como imagen de 512×512. */
