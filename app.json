@@ -34,7 +34,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "9204c546-e938-47f7-b52c-e4518c1a3f0c"
+        "projectId": "8a4b0da5-27a1-4f75-b528-87088f330d64"
       }
     },
     "owner": "gtaviceclips6s-team",
@@ -42,7 +42,7 @@
       "policy": "fingerprint"
     },
     "updates": {
-      "url": "https://u.expo.dev/9204c546-e938-47f7-b52c-e4518c1a3f0c",
+      "url": "https://u.expo.dev/8a4b0da5-27a1-4f75-b528-87088f330d64",
       "checkAutomatically": "ON_LOAD",
       "fallbackToCacheTimeout": 5000
     }
