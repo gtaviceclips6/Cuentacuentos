@@ -1,0 +1,692 @@
+name: Dibujar cuentos (gratis, Z-Image-Turbo)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  d00:
+    name: la-olla-magica 10-11
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'la-olla-magica:10,la-olla-magica:11'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-00
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d01:
+    name: cenicienta 1-3
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'cenicienta:1,cenicienta:2,cenicienta:3'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-01
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d02:
+    name: cenicienta 4-6
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'cenicienta:4,cenicienta:5,cenicienta:6'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-02
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d03:
+    name: cenicienta 7-9
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'cenicienta:7,cenicienta:8,cenicienta:9'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-03
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d04:
+    name: cenicienta 10-12
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'cenicienta:10,cenicienta:11,cenicienta:12'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-04
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d05:
+    name: la-bella-durmiente 1-3
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'la-bella-durmiente:1,la-bella-durmiente:2,la-bella-durmiente:3'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-05
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d06:
+    name: la-bella-durmiente 4-6
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'la-bella-durmiente:4,la-bella-durmiente:5,la-bella-durmiente:6'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-06
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d07:
+    name: la-bella-durmiente 7-9
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'la-bella-durmiente:7,la-bella-durmiente:8,la-bella-durmiente:9'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-07
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d08:
+    name: la-bella-durmiente 10-12
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'la-bella-durmiente:10,la-bella-durmiente:11,la-bella-durmiente:12'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-08
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d09:
+    name: blancanieves 1-3
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'blancanieves:1,blancanieves:2,blancanieves:3'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-09
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d10:
+    name: blancanieves 4-6
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'blancanieves:4,blancanieves:5,blancanieves:6'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-10
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d11:
+    name: blancanieves 7-9
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'blancanieves:7,blancanieves:8,blancanieves:9'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-11
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d12:
+    name: blancanieves 10-12
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'blancanieves:10,blancanieves:11,blancanieves:12'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-12
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d13:
+    name: el-mago-de-oz 1-3
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-mago-de-oz:1,el-mago-de-oz:2,el-mago-de-oz:3'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-13
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d14:
+    name: el-mago-de-oz 4-6
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-mago-de-oz:4,el-mago-de-oz:5,el-mago-de-oz:6'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-14
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d15:
+    name: el-mago-de-oz 7-9
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-mago-de-oz:7,el-mago-de-oz:8,el-mago-de-oz:9'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-15
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d16:
+    name: el-mago-de-oz 10-12
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-mago-de-oz:10,el-mago-de-oz:11,el-mago-de-oz:12'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-16
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d17:
+    name: alicia 1-3
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'alicia:1,alicia:2,alicia:3'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-17
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d18:
+    name: alicia 4-6
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'alicia:4,alicia:5,alicia:6'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-18
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d19:
+    name: alicia 7-9
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'alicia:7,alicia:8,alicia:9'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-19
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d20:
+    name: alicia 10-12
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'alicia:10,alicia:11,alicia:12'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-20
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d21:
+    name: la-reina-de-las-nieves 1-3
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'la-reina-de-las-nieves:1,la-reina-de-las-nieves:2,la-reina-de-las-nieves:3'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-21
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d22:
+    name: la-reina-de-las-nieves 4-6
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'la-reina-de-las-nieves:4,la-reina-de-las-nieves:5,la-reina-de-las-nieves:6'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-22
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d23:
+    name: la-reina-de-las-nieves 7-9
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'la-reina-de-las-nieves:7,la-reina-de-las-nieves:8,la-reina-de-las-nieves:9'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-23
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d24:
+    name: la-reina-de-las-nieves 10-11
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'la-reina-de-las-nieves:10,la-reina-de-las-nieves:11'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-24
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d25:
+    name: el-gigante-egoista 1-3
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-gigante-egoista:1,el-gigante-egoista:2,el-gigante-egoista:3'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-25
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d26:
+    name: el-gigante-egoista 4-6
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-gigante-egoista:4,el-gigante-egoista:5,el-gigante-egoista:6'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-26
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d27:
+    name: el-gigante-egoista 7-9
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-gigante-egoista:7,el-gigante-egoista:8,el-gigante-egoista:9'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-27
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d28:
+    name: el-gigante-egoista 10-11
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-gigante-egoista:10,el-gigante-egoista:11'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-28
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d29:
+    name: el-zapatero-y-los-duendes 1-3
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-zapatero-y-los-duendes:1,el-zapatero-y-los-duendes:2,el-zapatero-y-los-duendes:3'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-29
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d30:
+    name: el-zapatero-y-los-duendes 4-6
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-zapatero-y-los-duendes:4,el-zapatero-y-los-duendes:5,el-zapatero-y-los-duendes:6'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-30
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d31:
+    name: el-zapatero-y-los-duendes 7-9
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-zapatero-y-los-duendes:7,el-zapatero-y-los-duendes:8,el-zapatero-y-los-duendes:9'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-31
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d32:
+    name: el-zapatero-y-los-duendes 10-11
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-zapatero-y-los-duendes:10,el-zapatero-y-los-duendes:11'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-32
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d33:
+    name: garbancito 1-3
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'garbancito:1,garbancito:2,garbancito:3'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-33
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d34:
+    name: garbancito 4-6
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'garbancito:4,garbancito:5,garbancito:6'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-34
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d35:
+    name: garbancito 7-9
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'garbancito:7,garbancito:8,garbancito:9'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-35
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d36:
+    name: garbancito 10-11
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'garbancito:10,garbancito:11'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-36
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d37:
+    name: el-raton-perez 1-3
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-raton-perez:1,el-raton-perez:2,el-raton-perez:3'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-37
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d38:
+    name: el-raton-perez 4-6
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-raton-perez:4,el-raton-perez:5,el-raton-perez:6'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-38
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d39:
+    name: el-raton-perez 7-9
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-raton-perez:7,el-raton-perez:8,el-raton-perez:9'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-39
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d40:
+    name: el-raton-perez 10-11
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'el-raton-perez:10,el-raton-perez:11'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-40
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d41:
+    name: gulliver-en-liliput 1-3
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'gulliver-en-liliput:1,gulliver-en-liliput:2,gulliver-en-liliput:3'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-41
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d42:
+    name: gulliver-en-liliput 4-6
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'gulliver-en-liliput:4,gulliver-en-liliput:5,gulliver-en-liliput:6'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-42
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d43:
+    name: gulliver-en-liliput 7-9
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'gulliver-en-liliput:7,gulliver-en-liliput:8,gulliver-en-liliput:9'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-43
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d44:
+    name: gulliver-en-liliput 10-11
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'gulliver-en-liliput:10,gulliver-en-liliput:11'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-44
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d45:
+    name: la-ratita-presumida 1-3
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'la-ratita-presumida:1,la-ratita-presumida:2,la-ratita-presumida:3'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-45
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d46:
+    name: la-ratita-presumida 4-6
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'la-ratita-presumida:4,la-ratita-presumida:5,la-ratita-presumida:6'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-46
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d47:
+    name: la-ratita-presumida 7-9
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'la-ratita-presumida:7,la-ratita-presumida:8,la-ratita-presumida:9'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-47
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
+  d48:
+    name: la-ratita-presumida 10-12
+    runs_on: linux-medium
+    steps:
+      - uses: eas/checkout
+      - run: bash tools/dibujar-gratis.sh 'la-ratita-presumida:10,la-ratita-presumida:11,la-ratita-presumida:12'
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: dibujos-48
+          ignore_error: true
+          path: |
+            dibujos/**/*.png
