@@ -21,7 +21,7 @@ Este repositorio es la fuente de verdad del código. Las decisiones de producto 
 - Marcas de personaje: tipo "as" → `el rey {rey}`; tipo "nombre" (solo protagonistas cuyo nombre es el personaje) → `{cenicienta}`. Ninguna frase puede quedar vacía o rara sin nombres.
 - Sin romance ni escenas íntimas entre personajes con cara (ni besos, bodas, enamorarse, baños, desvestirse, compartir cama): los papeles los hace la familia y puede haber niños en cualquiera.
 - Sin violencia explícita ni sustos fuertes. Nada de Disney ni otras adaptaciones modernas (nombres, diseños, canciones).
-- Ilustraciones: caras de frente o en 3/4, grandes y sin nada que las tape (ni gafas), máximo 3 caras por página, personajes siempre vestidos, tercio superior despejado para el texto.
+- Ilustraciones: caras SOLO de frente (cabeza recta, mirando al lector, los dos ojos y orejas visibles; la foto real se pega encima), grandes y sin nada que las tape (ni gafas), máximo 3 caras por página, personajes siempre vestidos, tercio superior despejado para el texto.
 
 ## Desarrollo
 

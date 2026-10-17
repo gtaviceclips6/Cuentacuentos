@@ -13,8 +13,8 @@ STYLE = ("Semi-realistic painted children's storybook illustration, gentle paint
          "proportions and expressive friendly faces, soft watercolor and gouache texture, muted warm palette, "
          "not saturated, soft natural light. Full-bleed vertical page, no border, no frame. The top third of the "
          "image is calm, plain and empty background (soft wall or pale sky) with nothing in it, space for text.")
-RULES = ("Faces of the main characters large, from the front or three-quarters, evenly lit, eyes and mouth clearly "
-         "visible, nothing covering the faces, no glasses. Everyone fully clothed. Gentle, cosy, nothing scary, "
+RULES = ("Faces of the main characters large and strictly front-facing, looking straight at the viewer like a passport "
+         "photo, head straight and not tilted, both eyes and both ears visible, closed-mouth gentle smile, evenly lit, nothing covering the faces, no glasses. Everyone fully clothed. Gentle, cosy, nothing scary, "
          "no blood. Any other people only far away and tiny. No text, no letters, no words.")
 
 C = {
