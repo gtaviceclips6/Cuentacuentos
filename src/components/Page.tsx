@@ -47,7 +47,7 @@ export function EndPage({ tale, onAgain, onOther }: { tale: Tale; onAgain?: () =
 }
 
 const styles = StyleSheet.create({
-  sheet: { ...StyleSheet.absoluteFillObject, backgroundColor: color.paper, borderTopRightRadius: 16, borderBottomRightRadius: 16, overflow: "hidden" },
+  sheet: { position: "absolute", top: 0, right: 0, bottom: 0, left: 0, backgroundColor: color.paper, borderTopRightRadius: 16, borderBottomRightRadius: 16, overflow: "hidden" },
   band: { position: "absolute", left: 0, right: 0, top: 0, paddingHorizontal: 20, paddingTop: 18, paddingBottom: 48 },
   text: { fontFamily: font.read, fontSize: 34, lineHeight: 44, color: "#1F2238" },
   on: { backgroundColor: color.highlight },

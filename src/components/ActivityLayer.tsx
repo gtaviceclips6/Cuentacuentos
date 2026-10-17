@@ -214,6 +214,6 @@ const styles = StyleSheet.create({
   meterFill: { height: "100%", backgroundColor: color.accent, borderRadius: 999 },
   skip: { position: "absolute", right: 12, bottom: 48, backgroundColor: "rgba(31,34,56,0.7)", borderRadius: 999, paddingVertical: 7, paddingHorizontal: 12 },
   skipText: { fontFamily: font.readBold, color: "#FFFFFF", fontSize: 14 },
-  bravoWrap: { ...StyleSheet.absoluteFillObject, alignItems: "center", justifyContent: "center" },
+  bravoWrap: { position: "absolute", top: 0, right: 0, bottom: 0, left: 0, alignItems: "center", justifyContent: "center" },
   bravo: { fontFamily: font.display, fontSize: 52, color: "#FFFFFF", textShadowColor: "rgba(0,0,0,0.4)", textShadowRadius: 8 },
 });
