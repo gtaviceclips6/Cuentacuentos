@@ -1,9 +1,10 @@
 import * as ImagePicker from "expo-image-picker";
 import { router, useLocalSearchParams } from "expo-router";
 import { useState } from "react";
-import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Face } from "../../src/components/Face";
+import { cropFace } from "../../src/lib/faceCrop";
 import { taleBySlug } from "../../src/data/tales";
 import { useCast, type Mode } from "../../src/state/cast";
 import { color, font, hueOf } from "../../src/theme";
@@ -16,22 +17,32 @@ export default function Reparto() {
   const tale = taleBySlug(String(slug));
   const cast = useCast();
   const [notice, setNotice] = useState("");
+  const [busy, setBusy] = useState<string | null>(null);
   if (!tale) return <Missing />;
   const cfg = cast.get(tale);
   const hue = hueOf(tale.slug);
 
+  // Cualquier foto vale: la app busca la cara y la recorta sola (sin la pantalla de recorte del sistema).
   async function pickPhoto(id: string) {
     setNotice("");
+    let uri: string;
     try {
-      const perm = await ImagePicker.requestMediaLibraryPermissionsAsync();
-      if (!perm.granted) {
-        setNotice("Para poner una foto, permite el acceso a las fotos en los ajustes del móvil.");
-        return;
-      }
-      const res = await ImagePicker.launchImageLibraryAsync({ mediaTypes: ["images"], allowsEditing: true, aspect: [1, 1], quality: 0.7 });
-      if (!res.canceled && res.assets[0]) cast.set(tale!.slug, id, { photo: res.assets[0].uri });
+      const res = await ImagePicker.launchImageLibraryAsync({ mediaTypes: ["images"], quality: 1 });
+      if (res.canceled || !res.assets[0]) return;
+      uri = res.assets[0].uri;
     } catch {
       setNotice("No se ha podido abrir la galería. Inténtalo otra vez.");
+      return;
+    }
+    setBusy(id);
+    try {
+      const crop = await cropFace(uri);
+      cast.set(tale!.slug, id, { photo: crop.uri });
+      if (!crop.found) setNotice("No he encontrado ninguna cara en esa foto y he puesto el centro. Si no queda bien, prueba con una foto donde se vea la cara de frente.");
+    } catch {
+      setNotice("No he podido preparar esa foto. Prueba con otra.");
+    } finally {
+      setBusy(null);
     }
   }
 
@@ -44,7 +55,7 @@ export default function Reparto() {
         <View style={{ gap: 4 }}>
           <Text style={styles.eyebrow}>REPARTO</Text>
           <Text style={styles.title}>{tale.title}</Text>
-          <Text style={styles.sub}>Para cada papel: solo la cara, cara y nombre, o solo el nombre. Si no pones foto, sale la inicial.</Text>
+          <Text style={styles.sub}>Para cada papel: solo la cara, cara y nombre, o solo el nombre. Vale cualquier foto: la app encuentra la cara y la recorta sola. Si no pones foto, sale la inicial.</Text>
         </View>
 
         {tale.cast.map((m) => {
@@ -82,8 +93,12 @@ export default function Reparto() {
                   />
                 )}
                 {wantsFace && (
-                  <Pressable onPress={() => pickPhoto(m.id)} style={styles.photo} accessibilityRole="button">
-                    <Text style={styles.photoText}>{r.photo ? "Cambiar foto" : "Añadir foto"}</Text>
+                  <Pressable onPress={() => pickPhoto(m.id)} disabled={busy !== null} style={[styles.photo, busy !== null && { opacity: 0.6 }]} accessibilityRole="button">
+                    {busy === m.id ? (
+                      <View style={styles.busy}><ActivityIndicator color={color.ink} /><Text style={styles.photoText}>Buscando la cara…</Text></View>
+                    ) : (
+                      <Text style={styles.photoText}>{r.photo ? "Cambiar foto" : "Añadir foto"}</Text>
+                    )}
                   </Pressable>
                 )}
               </View>
@@ -130,6 +145,7 @@ const styles = StyleSheet.create({
   input: { borderWidth: 1, borderColor: color.line, backgroundColor: color.bg, borderRadius: 10, paddingVertical: 9, paddingHorizontal: 11, fontFamily: font.read, fontSize: 16, color: color.ink },
   photo: { alignSelf: "flex-start", borderWidth: 1, borderStyle: "dashed", borderColor: color.muted, borderRadius: 10, paddingVertical: 9, paddingHorizontal: 12 },
   photoText: { fontFamily: font.readBold, color: color.ink },
+  busy: { flexDirection: "row", alignItems: "center", gap: 8 },
   notice: { fontFamily: font.read, color: color.accent },
   privacy: { fontFamily: font.read, fontSize: 13, color: color.muted },
   cta: { alignSelf: "flex-start", backgroundColor: color.accent, borderRadius: 999, paddingVertical: 15, paddingHorizontal: 24 },
