@@ -122,11 +122,11 @@ function Illustrated({ tale, index, cfg, img, still }: { tale: Tale; index: numb
  * (x, y, w, h) es la cara del dibujo en la pantalla; la foto se escala para que su óvalo la cubra.
  */
 function FacePatch({ uri, x, y, w, h }: { uri: string; x: number; y: number; w: number; h: number }) {
-  const ow = w * 1.06; // óvalo un poco más ancho que la cara del dibujo, para taparla entera
-  const oh = h * 1.32;
+  const ow = w * 1.0; // óvalo del tamaño de la cara del dibujo; el pelo dibujado la enmarca
+  const oh = h * 1.26;
   const cx = x + w / 2;
   const cy = y + h / 2 - h * 0.06; // un poco hacia arriba: frente incluida
-  const S = ow / (FACE_OVAL.rx * 2); // tamaño de la foto para que su óvalo mida lo mismo
+  const S = (ow / (FACE_OVAL.rx * 2)) * 1.12; // la cara de la foto llena el óvalo (se ve menos fondo de la foto)
   // Círculo estirado en vertical = óvalo; dentro se deshace el estiramiento para no deformar la foto.
   return (
     <View
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
   faces: { position: "absolute", left: 0, right: 0, bottom: "16%", flexDirection: "row", justifyContent: "center", gap: 18 },
   face: { alignItems: "center", gap: 6, maxWidth: 110 },
   medals: { position: "absolute", left: 12, bottom: 30, flexDirection: "row", gap: 10 },
-  patch: { position: "absolute", overflow: "hidden", borderWidth: 1.5, borderColor: "rgba(255,255,255,0.75)" },
+  patch: { position: "absolute", overflow: "hidden" },
   label: { fontFamily: font.readBold, fontSize: 14, color: color.ink, backgroundColor: "rgba(255,255,255,0.85)", borderRadius: 10, paddingHorizontal: 8, paddingVertical: 2, overflow: "hidden" },
   pending: { position: "absolute", left: 16, bottom: 14, fontFamily: font.read, fontSize: 12, color: color.ink, opacity: 0.6 },
 });
