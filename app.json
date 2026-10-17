@@ -36,6 +36,13 @@
       "eas": {
         "projectId": "9204c546-e938-47f7-b52c-e4518c1a3f0c"
       }
+    },
+    "owner": "gtaviceclips6s-team",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/9204c546-e938-47f7-b52c-e4518c1a3f0c"
     }
   }
 }
