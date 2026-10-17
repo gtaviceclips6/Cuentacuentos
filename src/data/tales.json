@@ -1,0 +1,1703 @@
+[
+ {
+  "slug": "cenicienta",
+  "title": "Cenicienta",
+  "moral": "la bondad y el perdón valen más que el vestido más bonito.",
+  "cast": [
+   {
+    "id": "cenicienta",
+    "tipo": "nombre",
+    "label": "Cenicienta",
+    "animal": false
+   },
+   {
+    "id": "madrastra",
+    "tipo": "as",
+    "label": "la madrastra",
+    "animal": false
+   },
+   {
+    "id": "hermana1",
+    "tipo": "as",
+    "label": "la hermana mayor",
+    "animal": false
+   },
+   {
+    "id": "hermana2",
+    "tipo": "as",
+    "label": "la pequeña",
+    "animal": false
+   },
+   {
+    "id": "hada",
+    "tipo": "as",
+    "label": "el hada",
+    "animal": false
+   },
+   {
+    "id": "principe",
+    "tipo": "as",
+    "label": "el príncipe",
+    "animal": false
+   }
+  ],
+  "pages": [
+   {
+    "t": "{cenicienta} era buena y alegre. Vivía con la madrastra {madrastra} y sus dos hijas.",
+    "e": "cocina con chimenea. Cenicienta, con delantal, sonríe con la escoba; la madrastra la mira desde la puerta.",
+    "c": [
+     "cenicienta",
+     "madrastra"
+    ]
+   },
+   {
+    "t": "La hermana mayor {hermana1} y la pequeña {hermana2} se probaban sombreros. {cenicienta} barría y cantaba.",
+    "e": "las dos hermanas se prueban sombreros enormes ante un espejo; Cenicienta barre detrás, cantando.",
+    "c": [
+     "hermana1",
+     "hermana2",
+     "cenicienta"
+    ]
+   },
+   {
+    "t": "Un día llegó una carta: ¡fiesta en el palacio! «¿Puedo ir?», preguntó {cenicienta}. «No tienes vestido», dijo la madrastra.",
+    "e": "la madrastra sostiene la carta con sello real y niega con la cabeza; Cenicienta, con la escoba, la mira esperanzada.",
+    "c": [
+     "cenicienta",
+     "madrastra"
+    ]
+   },
+   {
+    "t": "{cenicienta} se quedó sola junto al fuego. De pronto, brilló una luz. ¡Era el hada {hada}!",
+    "e": "cocina de noche. Entre destellos aparece el hada, con capa lila y varita de madera; Cenicienta, sorprendida.",
+    "c": [
+     "cenicienta",
+     "hada"
+    ]
+   },
+   {
+    "t": "El hada movió su varita. ¡Zas! La calabaza se convirtió en una carroza.",
+    "e": "huerto de noche. Una calabaza se transforma en una carroza dorada y redonda entre chispas; el hada y Cenicienta miran.",
+    "c": [
+     "hada",
+     "cenicienta"
+    ]
+   },
+   {
+    "t": "El delantal se convirtió en un vestido verde. ¡Y en sus pies, zapatitos de cristal!",
+    "e": "Cenicienta gira contenta con un vestido verde esmeralda; brillan los zapatitos de cristal. El hada sonríe.",
+    "c": [
+     "cenicienta",
+     "hada"
+    ]
+   },
+   {
+    "t": "«Vuelve antes de las doce», dijo el hada {hada}. «A las doce, la magia se acaba.»",
+    "e": "el hada señala la luna con la varita; Cenicienta, ya en la carroza, asiente.",
+    "c": [
+     "hada",
+     "cenicienta"
+    ]
+   },
+   {
+    "t": "En la fiesta, el príncipe {principe} la saludó. ¡Todos bailaron en corro!",
+    "e": "gran salón con farolillos. Corro de invitados de la mano; en primer plano, Cenicienta y el príncipe, riendo, dentro del corro.",
+    "c": [
+     "cenicienta",
+     "principe"
+    ]
+   },
+   {
+    "t": "¡Tolón, tolón! Sonaban las doce. {cenicienta} salió corriendo y perdió un zapatito.",
+    "e": "escalinata de noche con un gran reloj. Cenicienta baja deprisa mirando atrás; un zapatito brilla en un escalón.",
+    "c": [
+     "cenicienta"
+    ]
+   },
+   {
+    "t": "El príncipe {principe} buscó a la dueña del zapatito. ¡A las hermanas no les cabía!",
+    "e": "el príncipe sostiene el zapatito; la hermana mayor empuja el pie, enfurruñada; la pequeña espera su turno.",
+    "c": [
+     "principe",
+     "hermana1",
+     "hermana2"
+    ]
+   },
+   {
+    "t": "{cenicienta} se lo probó. ¡Le quedaba perfecto! Y perdonó a sus hermanas con un abrazo.",
+    "e": "abrazo de familia entre Cenicienta y las dos hermanas, las tres sonriendo; el zapatito, puesto.",
+    "c": [
+     "cenicienta",
+     "hermana1",
+     "hermana2"
+    ]
+   },
+   {
+    "t": "Esa noche hubo otra fiesta, y fueron todos juntos. Y colorín colorado, este cuento se ha acabado.",
+    "e": "salón del palacio con farolillos. Todos bailan en corro: Cenicienta, el príncipe y la madrastra en primer plano, riendo.",
+    "c": [
+     "cenicienta",
+     "principe",
+     "madrastra"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "la-bella-durmiente",
+  "title": "La bella durmiente",
+  "moral": "a nadie le gusta quedarse fuera; invitar a todos evita muchos enfados.",
+  "cast": [
+   {
+    "id": "princesa",
+    "tipo": "as",
+    "label": "la princesa",
+    "animal": false
+   },
+   {
+    "id": "rey",
+    "tipo": "as",
+    "label": "el rey",
+    "animal": false
+   },
+   {
+    "id": "reina",
+    "tipo": "as",
+    "label": "la reina",
+    "animal": false
+   },
+   {
+    "id": "hada_buena",
+    "tipo": "as",
+    "label": "el hada buena",
+    "animal": false
+   },
+   {
+    "id": "hada_mala",
+    "tipo": "as",
+    "label": "el hada olvidada",
+    "animal": false
+   },
+   {
+    "id": "viajero",
+    "tipo": "as",
+    "label": "el explorador",
+    "animal": false
+   }
+  ],
+  "pages": [
+   {
+    "t": "El rey {rey} y la reina {reina} tuvieron una niña: la princesa {princesa}.",
+    "e": "salón del castillo con guirnaldas. El rey y la reina sonríen junto a una cuna; la bebé asoma, risueña.",
+    "c": [
+     "rey",
+     "reina",
+     "princesa"
+    ]
+   },
+   {
+    "t": "Hicieron una gran fiesta e invitaron a las hadas. Pero se olvidaron de una.",
+    "e": "hadas pequeñitas alrededor de la cuna, de lejos. En primer plano, el rey y la reina reciben regalos.",
+    "c": [
+     "rey",
+     "reina"
+    ]
+   },
+   {
+    "t": "El hada olvidada {hada_mala} llegó muy enfadada. «¡La niña se pinchará con un huso y se dormirá!»",
+    "e": "el hada olvidada, con capa gris y ceño fruncido, más gruñona que mala, señala la cuna con un bastón.",
+    "c": [
+     "hada_mala",
+     "princesa"
+    ]
+   },
+   {
+    "t": "Pero el hada buena {hada_buena} dijo: «Solo dormirá cien años. Después, despertará».",
+    "e": "el hada buena, con vestido melocotón, levanta la mano con calma delante de la cuna.",
+    "c": [
+     "hada_buena",
+     "princesa"
+    ]
+   },
+   {
+    "t": "La princesa {princesa} creció alegre y curiosa. Un día, subió a una torre.",
+    "e": "la princesa, ya niña mayor, con vestido mostaza, sube una escalera de caracol con curiosidad.",
+    "c": [
+     "princesa"
+    ]
+   },
+   {
+    "t": "Allí había un huso que daba vueltas. Lo tocó… ¡y se pinchó el dedo!",
+    "e": "cuarto pequeño en la torre. La princesa toca un huso que gira junto a una rueca; cara de sorpresa, sin sangre.",
+    "c": [
+     "princesa"
+    ]
+   },
+   {
+    "t": "La princesa bostezó y se quedó dormida. ¡Y todo el castillo se durmió con ella!",
+    "e": "la princesa dormida y sonriente en un cojín grande; por la ventana se ve el castillo con todos dormidos. El rey y la reina, dormidos en sus tronos, al fondo.",
+    "c": [
+     "princesa",
+     "rey",
+     "reina"
+    ]
+   },
+   {
+    "t": "Creció un bosque de zarzas. Pasaron cien años. Un día llegó el explorador {viajero}.",
+    "e": "muro de zarzas alrededor del castillo; el explorador, con mochila y capa de viaje, mira asombrado.",
+    "c": [
+     "viajero"
+    ]
+   },
+   {
+    "t": "Las zarzas se abrieron, llenas de flores. El explorador subió a la torre.",
+    "e": "las zarzas se apartan formando un arco de flores; el explorador pasa sonriendo.",
+    "c": [
+     "viajero"
+    ]
+   },
+   {
+    "t": "Justo entonces se cumplieron los cien años. La princesa {princesa} abrió los ojos: «¡Qué siesta tan larga!»",
+    "e": "la torre. La princesa se estira en su cojín; el explorador, en la puerta, a distancia, sonríe.",
+    "c": [
+     "princesa",
+     "viajero"
+    ]
+   },
+   {
+    "t": "Todo el castillo despertó e hizo una fiesta. ¡Esta vez invitaron a todas las hadas!",
+    "e": "salón con farolillos. El rey, la reina y la princesa se abrazan; hadas volando alrededor, de lejos.",
+    "c": [
+     "rey",
+     "reina",
+     "princesa"
+    ]
+   },
+   {
+    "t": "El hada olvidada {hada_mala} sonrió por fin. Y colorín colorado, este cuento se ha acabado.",
+    "e": "el hada olvidada, con una flor en el pelo, sonríe con un trozo de tarta; el hada buena y la princesa brindan con ella.",
+    "c": [
+     "hada_mala",
+     "hada_buena",
+     "princesa"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "la-ratita-presumida",
+  "title": "La ratita presumida",
+  "moral": "un buen amigo no es el que más te halaga, sino el que te cuida.",
+  "cast": [
+   {
+    "id": "ratita",
+    "tipo": "as",
+    "label": "la ratita",
+    "animal": true
+   },
+   {
+    "id": "gallo",
+    "tipo": "as",
+    "label": "el gallo",
+    "animal": true
+   },
+   {
+    "id": "perro",
+    "tipo": "as",
+    "label": "el perro",
+    "animal": true
+   },
+   {
+    "id": "raton",
+    "tipo": "as",
+    "label": "el ratón",
+    "animal": true
+   },
+   {
+    "id": "gato",
+    "tipo": "as",
+    "label": "el gato",
+    "animal": true
+   }
+  ],
+  "pages": [
+   {
+    "t": "La ratita {ratita} barría su casita. ¡Mira! En el suelo brillaba una moneda.",
+    "e": "puerta de una casita de piedra con macetas. La ratita, con delantal de cuadros amarillos, ve una moneda brillante.",
+    "c": [
+     "ratita"
+    ]
+   },
+   {
+    "t": "«¿Qué me compro?», pensó. «¡Un lazo de seda!» Y se lo puso en la cola.",
+    "e": "la ratita se mira en un espejito con un lazo turquesa en la cola, muy presumida.",
+    "c": [
+     "ratita"
+    ]
+   },
+   {
+    "t": "Pasó el gallo {gallo}: «Ratita, qué lazo tan bonito. ¿Quieres ser mi amiga?»",
+    "e": "el gallo, orgulloso, saca pecho delante de la ratita, sentada en un taburete.",
+    "c": [
+     "gallo",
+     "ratita"
+    ]
+   },
+   {
+    "t": "«¿Y qué harás por la mañana?» «¡Kikirikí!» «Uy, no, que me asustas.»",
+    "e": "el gallo canta con el pico muy abierto; la ratita se tapa las orejas, riendo.",
+    "c": [
+     "gallo",
+     "ratita"
+    ]
+   },
+   {
+    "t": "Pasó el perro {perro}: «Ratita, qué lazo tan bonito. ¿Quieres ser mi amiga?» «¡Guau, guau!» «Uy, no, que me asustas.»",
+    "e": "el perro, de orejas largas, ladra con ganas de jugar; la ratita se tapa las orejas.",
+    "c": [
+     "perro",
+     "ratita"
+    ]
+   },
+   {
+    "t": "Pasó el ratón {raton} con un queso. «¿Te ayudo a barrer?» Pero la ratita no lo miró.",
+    "e": "el ratón, con chaleco verde, ofrece un trozo de queso; la ratita mira su lazo en el espejito.",
+    "c": [
+     "raton",
+     "ratita"
+    ]
+   },
+   {
+    "t": "Pasó el gato {gato}: «Ratita, qué lazo tan bonito. ¿Vienes a merendar a mi casa?» «¡Qué voz tan dulce! ¡Sí!»",
+    "e": "el gato, gris y elegante con pajarita, hace una reverencia; la ratita aplaude. Al fondo, el ratón, pequeño, los mira preocupado.",
+    "c": [
+     "gato",
+     "ratita"
+    ]
+   },
+   {
+    "t": "En casa del gato no había merienda. Solo había una olla muy grande.",
+    "e": "cocina del gato en penumbra cálida, nada oscura. Una olla enorme; la ratita mira a todos lados.",
+    "c": [
+     "ratita",
+     "gato"
+    ]
+   },
+   {
+    "t": "El gato se relamía los bigotes. ¡La ratita se asustó!",
+    "e": "el gato sonríe con picardía, sin garras ni dientes a la vista; la ratita, junto a la puerta, abre mucho los ojos.",
+    "c": [
+     "gato",
+     "ratita"
+    ]
+   },
+   {
+    "t": "¡Toc, toc! Era el ratón {raton}. «¡Ratita, por aquí!» Y escaparon por un agujero.",
+    "e": "el ratón asoma por un agujero redondo y le tiende la mano a la ratita; el gato, al fondo, con cara de fastidio.",
+    "c": [
+     "raton",
+     "ratita",
+     "gato"
+    ]
+   },
+   {
+    "t": "«Gracias por cuidarme», dijo la ratita {ratita}. «¿Quieres ser mi amigo?» «¡Claro!»",
+    "e": "la puerta de la casita al atardecer. La ratita y el ratón se dan la mano, sonriendo.",
+    "c": [
+     "ratita",
+     "raton"
+    ]
+   },
+   {
+    "t": "Desde entonces barren juntos y comparten el queso. Y colorín colorado, este cuento se ha acabado.",
+    "e": "los dos amigos barren la puerta, riendo, con el queso en una mesita.",
+    "c": [
+     "ratita",
+     "raton"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "blancanieves",
+  "title": "Blancanieves",
+  "moral": "la bondad brilla más que cualquier espejo; y a quien no conoces, no le abras la puerta.",
+  "cast": [
+   {
+    "id": "blancanieves",
+    "tipo": "nombre",
+    "label": "Blancanieves",
+    "animal": false
+   },
+   {
+    "id": "reina",
+    "tipo": "as",
+    "label": "la reina",
+    "animal": false
+   },
+   {
+    "id": "cazador",
+    "tipo": "as",
+    "label": "el cazador",
+    "animal": false
+   },
+   {
+    "id": "enano_mayor",
+    "tipo": "as",
+    "label": "el enanito mayor",
+    "animal": false
+   },
+   {
+    "id": "enano_pequeno",
+    "tipo": "as",
+    "label": "el enanito chico",
+    "animal": false
+   },
+   {
+    "id": "enano_cocinero",
+    "tipo": "as",
+    "label": "el enanito cocinero",
+    "animal": false
+   }
+  ],
+  "pages": [
+   {
+    "t": "La reina {reina} tenía un espejo mágico. «Espejito, ¿quién es la más hermosa?»",
+    "e": "la reina, con vestido granate y corona fina, se mira en un espejo ovalado de marco dorado.",
+    "c": [
+     "reina"
+    ]
+   },
+   {
+    "t": "«Tú, mi reina», decía el espejo. Pero un día dijo: «{blancanieves}, porque es buena».",
+    "e": "en el espejo aparece Blancanieves regando flores; la reina, detrás, frunce el ceño.",
+    "c": [
+     "reina",
+     "blancanieves"
+    ]
+   },
+   {
+    "t": "La reina se enfadó mucho. Llamó al cazador {cazador}: «¡Llévala lejos, al bosque!»",
+    "e": "la reina señala la puerta, enfadada; el cazador, grandote y con barba corta, la escucha con cara de pena.",
+    "c": [
+     "reina",
+     "cazador"
+    ]
+   },
+   {
+    "t": "Pero el cazador era bueno. «Corre y escóndete», le dijo a {blancanieves}.",
+    "e": "bosque al atardecer, nada tenebroso. El cazador, agachado, le habla con cariño a Blancanieves, con vestido verde oliva y capa marrón.",
+    "c": [
+     "cazador",
+     "blancanieves"
+    ]
+   },
+   {
+    "t": "{blancanieves} encontró una casita. Tenía siete sillitas, siete platitos y siete cucharitas.",
+    "e": "interior acogedor con siete sillitas y una mesa puesta; Blancanieves, asombrada, cuenta con los dedos.",
+    "c": [
+     "blancanieves"
+    ]
+   },
+   {
+    "t": "Era la casa de siete enanitos. «¡Quédate con nosotros!», dijo el enanito chico {enano_pequeno}.",
+    "e": "los enanitos vuelven de la mina; el enanito chico, con gorro mostaza, salta de alegría; el mayor, con barba blanca, sonríe.",
+    "c": [
+     "enano_pequeno",
+     "enano_mayor",
+     "blancanieves"
+    ]
+   },
+   {
+    "t": "El enanito mayor {enano_mayor} le avisó: «No abras la puerta a nadie».",
+    "e": "el enanito mayor levanta un dedo, serio pero cariñoso; Blancanieves asiente.",
+    "c": [
+     "enano_mayor",
+     "blancanieves"
+    ]
+   },
+   {
+    "t": "Un día llamó una vendedora. ¡Era la reina disfrazada! Traía una manzana mágica.",
+    "e": "la reina, disfrazada con un pañuelo de colores y una cesta, ofrece una manzana roja; su cara se ve bien, sin capucha.",
+    "c": [
+     "reina",
+     "blancanieves"
+    ]
+   },
+   {
+    "t": "{blancanieves} abrió y mordió la manzana. ¡Y se quedó dormida!",
+    "e": "Blancanieves dormida y tranquila en una mecedora, con la manzana mordida en el suelo.",
+    "c": [
+     "blancanieves"
+    ]
+   },
+   {
+    "t": "Los enanitos estaban muy tristes. El enanito cocinero {enano_cocinero} le traía flores cada día.",
+    "e": "jardín soleado. Blancanieves dormida, sonriente, sobre un lecho de margaritas; el enanito cocinero, con delantal, deja una flor.",
+    "c": [
+     "enano_cocinero",
+     "blancanieves"
+    ]
+   },
+   {
+    "t": "Un día, el enanito chico tropezó. ¡Pataplaf! El trocito de manzana salió volando.",
+    "e": "el enanito chico, tropezando con cara cómica; un trocito de manzana vuela por el aire.",
+    "c": [
+     "enano_pequeno",
+     "blancanieves"
+    ]
+   },
+   {
+    "t": "{blancanieves} abrió los ojos y todos la abrazaron. Y colorín colorado, este cuento se ha acabado.",
+    "e": "abrazo de grupo en el jardín: Blancanieves ríe con el enanito chico y el mayor; los demás, alrededor.",
+    "c": [
+     "blancanieves",
+     "enano_pequeno",
+     "enano_mayor"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "el-mago-de-oz",
+  "title": "El mago de Oz",
+  "moral": "muchas veces ya llevamos dentro lo que salimos a buscar.",
+  "cast": [
+   {
+    "id": "dorotea",
+    "tipo": "nombre",
+    "label": "Dorotea",
+    "animal": false
+   },
+   {
+    "id": "tia",
+    "tipo": "as",
+    "label": "la tía",
+    "animal": false
+   },
+   {
+    "id": "bruja_buena",
+    "tipo": "as",
+    "label": "la bruja buena",
+    "animal": false
+   },
+   {
+    "id": "espantapajaros",
+    "tipo": "as",
+    "label": "el espantapájaros",
+    "animal": false
+   },
+   {
+    "id": "hojalata",
+    "tipo": "as",
+    "label": "el hombre de hojalata",
+    "animal": false
+   },
+   {
+    "id": "leon",
+    "tipo": "as",
+    "label": "el león",
+    "animal": true
+   },
+   {
+    "id": "mago",
+    "tipo": "as",
+    "label": "el mago",
+    "animal": false
+   }
+  ],
+  "pages": [
+   {
+    "t": "{dorotea} vivía en una granja con la tía {tia}. Tenía un perrito, Totó.",
+    "e": "granja de madera en una pradera dorada. Dorotea, con vestido rojo de lunares blancos, abraza a Totó; la tía sonríe en el porche.",
+    "c": [
+     "dorotea",
+     "tia"
+    ]
+   },
+   {
+    "t": "Un día, un tornado se llevó la casa. ¡Volaba por el cielo!",
+    "e": "la casa gira en el aire dentro de un remolino; Dorotea se asoma a la ventana con Totó, sorprendida.",
+    "c": [
+     "dorotea"
+    ]
+   },
+   {
+    "t": "La casa cayó en un país mágico. ¡Era el país de Oz!",
+    "e": "paisaje de colores con flores enormes y ríos brillantes; Dorotea abre la puerta, maravillada.",
+    "c": [
+     "dorotea"
+    ]
+   },
+   {
+    "t": "La bruja buena {bruja_buena} le dio unos zapatos de plata. «Busca al mago. Sigue el camino amarillo.»",
+    "e": "la bruja buena, con vestido blanco de estrellitas y sombrero puntiagudo blanco, le da los zapatos plateados.",
+    "c": [
+     "bruja_buena",
+     "dorotea"
+    ]
+   },
+   {
+    "t": "En el camino, {dorotea} conoció al espantapájaros {espantapajaros}. «Quiero un cerebro», dijo él.",
+    "e": "campo de maíz junto al camino amarillo. El espantapájaros, con sombrero azul y camisa de remiendos, saluda.",
+    "c": [
+     "dorotea",
+     "espantapajaros"
+    ]
+   },
+   {
+    "t": "Luego encontraron al hombre de hojalata {hojalata}. «Yo quiero un corazón», dijo.",
+    "e": "el hombre de hojalata, plateado y redondeado, con un embudo por sombrero y la cara visible, se toca el pecho.",
+    "c": [
+     "hojalata",
+     "dorotea"
+    ]
+   },
+   {
+    "t": "Y después, al león {leon}. «Yo quiero ser valiente», dijo, temblando.",
+    "e": "el león, grande y peludo, tiembla detrás de un árbol con las orejas gachas; Totó le ladra.",
+    "c": [
+     "leon",
+     "dorotea"
+    ]
+   },
+   {
+    "t": "Juntos llegaron a la Ciudad Esmeralda. ¡Todo era verde y brillante!",
+    "e": "los cuatro amigos llegan a una ciudad verde y reluciente.",
+    "c": [
+     "dorotea",
+     "espantapajaros",
+     "leon"
+    ]
+   },
+   {
+    "t": "Allí estaba el mago {mago}. ¡Pero no era mago! Solo sabía hacer trucos.",
+    "e": "sala verde con una cortina caída; el mago, bajito, con chaleco de rayas y bigote, levanta las manos avergonzado.",
+    "c": [
+     "mago",
+     "dorotea"
+    ]
+   },
+   {
+    "t": "«Ya sois listos, buenos y valientes», les dijo el mago. «Lo lleváis dentro.»",
+    "e": "el mago señala a los tres amigos, que se miran sorprendidos y contentos; el león, de lejos.",
+    "c": [
+     "mago",
+     "espantapajaros",
+     "hojalata"
+    ]
+   },
+   {
+    "t": "La bruja buena le dijo a {dorotea}: «Choca tus zapatos tres veces».",
+    "e": "la bruja buena, entre destellos, señala los zapatos plateados de Dorotea.",
+    "c": [
+     "bruja_buena",
+     "dorotea"
+    ]
+   },
+   {
+    "t": "¡Clac, clac, clac! {dorotea} volvió a casa con la tía {tia}. Y colorín colorado, este cuento se ha acabado.",
+    "e": "la granja al atardecer. La tía abraza a Dorotea y a Totó.",
+    "c": [
+     "dorotea",
+     "tia"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "alicia",
+  "title": "Alicia en el país de las maravillas",
+  "moral": "la curiosidad y la imaginación te llevan a sitios maravillosos, y reírse juntos lo arregla casi todo.",
+  "cast": [
+   {
+    "id": "alicia",
+    "tipo": "nombre",
+    "label": "Alicia",
+    "animal": false
+   },
+   {
+    "id": "hermana",
+    "tipo": "as",
+    "label": "su hermana",
+    "animal": false
+   },
+   {
+    "id": "conejo",
+    "tipo": "as",
+    "label": "el conejo",
+    "animal": true
+   },
+   {
+    "id": "gato",
+    "tipo": "as",
+    "label": "el gato",
+    "animal": true
+   },
+   {
+    "id": "sombrerero",
+    "tipo": "as",
+    "label": "el sombrerero",
+    "animal": false
+   },
+   {
+    "id": "liebre",
+    "tipo": "as",
+    "label": "la liebre",
+    "animal": true
+   },
+   {
+    "id": "reina",
+    "tipo": "as",
+    "label": "la reina",
+    "animal": false
+   }
+  ],
+  "pages": [
+   {
+    "t": "{alicia} se aburría mucho en el campo con su hermana {hermana}.",
+    "e": "orilla de un río en verano. La hermana lee bajo un árbol; Alicia, con vestido amarillo mostaza y sin diadema, bosteza.",
+    "c": [
+     "alicia",
+     "hermana"
+    ]
+   },
+   {
+    "t": "De pronto pasó el conejo {conejo}, con un reloj. «¡Llego tarde, llego tarde!»",
+    "e": "el conejo blanco, con chaleco, corre mirando un reloj de bolsillo; Alicia se gira, curiosa.",
+    "c": [
+     "conejo",
+     "alicia"
+    ]
+   },
+   {
+    "t": "{alicia} lo siguió por un agujero. ¡Y cayó, y cayó, muy despacito!",
+    "e": "Alicia flota con calma por un pozo lleno de estanterías y tarros de mermelada.",
+    "c": [
+     "alicia"
+    ]
+   },
+   {
+    "t": "Abajo había una puerta muy pequeña. {alicia} cogió un abanico… ¡y se hizo chiquitita!",
+    "e": "sala con muchas puertas; Alicia, diminuta, sostiene un abanico enorme junto a una puertecita.",
+    "c": [
+     "alicia"
+    ]
+   },
+   {
+    "t": "En una rama sonreía el gato {gato}. Luego desapareció… ¡pero quedó su sonrisa!",
+    "e": "bosque de setas gigantes. En una rama, el gato atigrado naranja medio transparente; solo su sonrisa se ve entera.",
+    "c": [
+     "gato",
+     "alicia"
+    ]
+   },
+   {
+    "t": "{alicia} volvió a crecer. Después llegó a una merienda muy loca.",
+    "e": "Alicia, de su tamaño, llega a una mesa larguísima con teteras desparejadas.",
+    "c": [
+     "alicia"
+    ]
+   },
+   {
+    "t": "El sombrerero {sombrerero} y la liebre {liebre} tomaban té. ¡Su reloj siempre marcaba la hora del té!",
+    "e": "el sombrerero, con sombrero de copa verde botella, y la liebre, con flores en las orejas, brindan con tazas; Alicia se sienta.",
+    "c": [
+     "sombrerero",
+     "liebre",
+     "alicia"
+    ]
+   },
+   {
+    "t": "«¿En qué se parece un cuervo a un escritorio?», preguntó el sombrerero. «¡Ni idea!»",
+    "e": "el sombrerero, muy serio, levanta un dedo; Alicia se rasca la cabeza pensando.",
+    "c": [
+     "sombrerero",
+     "alicia"
+    ]
+   },
+   {
+    "t": "Después, {alicia} llegó a un jardín. Allí estaba la reina {reina}. ¡Jugaba al cróquet con flamencos!",
+    "e": "jardín de rosales. La reina, con vestido rojo y blanco de corazones pequeños, sostiene un flamenco como palo.",
+    "c": [
+     "alicia",
+     "reina"
+    ]
+   },
+   {
+    "t": "La reina perdía y se enfadaba mucho. «¡Solo es un juego!», le dijo {alicia}.",
+    "e": "la reina, roja de enfado, patalea; Alicia le habla tranquila, sonriendo.",
+    "c": [
+     "reina",
+     "alicia"
+    ]
+   },
+   {
+    "t": "La reina se rio a carcajadas. ¡Y los naipes salieron volando!",
+    "e": "la reina ríe con la boca muy abierta; naipes vuelan por el aire como hojas.",
+    "c": [
+     "reina",
+     "alicia"
+    ]
+   },
+   {
+    "t": "{alicia} despertó junto a su hermana. ¡Todo había sido un sueño! Y colorín colorado, este cuento se ha acabado.",
+    "e": "orilla del río al atardecer. Alicia, emocionada, le cuenta su sueño a la hermana, que sonríe.",
+    "c": [
+     "alicia",
+     "hermana"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "el-raton-perez",
+  "title": "El ratón Pérez",
+  "moral": "quien tiene mucho es más feliz cuando comparte.",
+  "cast": [
+   {
+    "id": "bubi",
+    "tipo": "as",
+    "label": "el reyecito",
+    "animal": false
+   },
+   {
+    "id": "reina",
+    "tipo": "as",
+    "label": "la reina",
+    "animal": false
+   },
+   {
+    "id": "perez",
+    "tipo": "as",
+    "label": "el ratoncito",
+    "animal": true
+   },
+   {
+    "id": "mama_ratona",
+    "tipo": "as",
+    "label": "la mamá ratona",
+    "animal": true
+   },
+   {
+    "id": "gato",
+    "tipo": "as",
+    "label": "el gato",
+    "animal": true
+   },
+   {
+    "id": "gilito",
+    "tipo": "as",
+    "label": "el niño",
+    "animal": false
+   }
+  ],
+  "pages": [
+   {
+    "t": "Al reyecito {bubi} se le cayó un diente. ¡Plin! Cayó en la sopa.",
+    "e": "comedor del palacio. El reyecito, con traje de marinero azul y una mella en la sonrisa, mira el diente en la cuchara.",
+    "c": [
+     "bubi"
+    ]
+   },
+   {
+    "t": "La reina {reina} le dijo: «Ponlo bajo la almohada. Vendrá el ratón Pérez».",
+    "e": "la reina, con vestido gris perla, le guiña un ojo al reyecito, que guarda el diente en un papelito.",
+    "c": [
+     "reina",
+     "bubi"
+    ]
+   },
+   {
+    "t": "Por la noche, por un agujerito, asomó el ratoncito {perez}. ¡Era el ratón Pérez!",
+    "e": "dormitorio a la luz de una vela. El reyecito, en pijama abrochado, sentado en la cama; el ratoncito, con sombrero de paja y cartera roja, asoma por un agujero.",
+    "c": [
+     "bubi",
+     "perez"
+    ]
+   },
+   {
+    "t": "Le tocó la nariz con la cola. ¡Zas! El reyecito se convirtió en ratón.",
+    "e": "destellos; el reyecito, ahora ratoncito con coronita, se mira las patitas, asombrado.",
+    "c": [
+     "perez",
+     "bubi"
+    ]
+   },
+   {
+    "t": "Los dos corrieron por las calles de Madrid. ¡Iban a casa de Pérez!",
+    "e": "calle de Madrid de noche, farolas antiguas; dos ratoncitos corren por la acera.",
+    "c": [
+     "perez",
+     "bubi"
+    ]
+   },
+   {
+    "t": "Vivía en una caja de galletas. La mamá ratona {mama_ratona} les dio queso.",
+    "e": "una caja de galletas convertida en casita con muebles de dedales; la mamá ratona, con delantal, sirve queso.",
+    "c": [
+     "mama_ratona",
+     "perez",
+     "bubi"
+    ]
+   },
+   {
+    "t": "¡Miau! Era el gato {gato}. Los ratoncitos escaparon por un túnel secreto.",
+    "e": "sótano con sacos de harina; el gato atigrado mete la nariz en un agujero, con cara de chasco.",
+    "c": [
+     "gato"
+    ]
+   },
+   {
+    "t": "Luego fueron a una casa pobre. Allí dormía el niño {gilito}, con una manta muy fina.",
+    "e": "buhardilla sencilla y limpia, luz de luna. El niño duerme con una manta fina; los ratoncitos miran desde la mesilla.",
+    "c": [
+     "gilito",
+     "perez",
+     "bubi"
+    ]
+   },
+   {
+    "t": "«Tiene frío», dijo el reyecito {bubi}. Y lo tapó con su capa de terciopelo.",
+    "e": "el reyecito, en forma de ratón, extiende una capa azul que se agranda con destellos sobre el niño.",
+    "c": [
+     "bubi",
+     "gilito"
+    ]
+   },
+   {
+    "t": "El ratoncito {perez} sonrió. «Así es un buen rey», le dijo.",
+    "e": "el ratón Pérez, sonriente, quita el sombrero de paja en una reverencia ante el reyecito.",
+    "c": [
+     "perez",
+     "bubi"
+    ]
+   },
+   {
+    "t": "Por la mañana, el reyecito encontró una moneda de oro. Y colorín colorado, este cuento se ha acabado.",
+    "e": "dormitorio con sol. El reyecito, otra vez niño, enseña una moneda de oro a la reina, que lo abraza.",
+    "c": [
+     "bubi",
+     "reina"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "la-reina-de-las-nieves",
+  "title": "La reina de las nieves",
+  "moral": "una amistad de verdad es más fuerte que cualquier hielo.",
+  "cast": [
+   {
+    "id": "gerda",
+    "tipo": "nombre",
+    "label": "Gerda",
+    "animal": false
+   },
+   {
+    "id": "kay",
+    "tipo": "nombre",
+    "label": "Kay",
+    "animal": false
+   },
+   {
+    "id": "abuela",
+    "tipo": "as",
+    "label": "la abuela",
+    "animal": false
+   },
+   {
+    "id": "reina",
+    "tipo": "as",
+    "label": "la Reina de las Nieves",
+    "animal": false
+   },
+   {
+    "id": "bandida",
+    "tipo": "as",
+    "label": "la niña bandida",
+    "animal": false
+   },
+   {
+    "id": "reno",
+    "tipo": "as",
+    "label": "el reno",
+    "animal": true
+   }
+  ],
+  "pages": [
+   {
+    "t": "{gerda} y {kay} eran vecinos. ¡Y los mejores amigos del mundo!",
+    "e": "dos ventanas de buhardilla enfrentadas con rosas entre ellas; Gerda y Kay se pasan una rosa.",
+    "c": [
+     "gerda",
+     "kay"
+    ]
+   },
+   {
+    "t": "La abuela {abuela} decía: «Cuidado con la Reina de las Nieves. Tiene el corazón de hielo».",
+    "e": "la abuela teje junto a una estufa; Gerda y Kay la escuchan sentados en el suelo.",
+    "c": [
+     "abuela",
+     "gerda",
+     "kay"
+    ]
+   },
+   {
+    "t": "Un día, a {kay} le cayó una chispa de hielo. ¡Le llegó al corazón!",
+    "e": "Kay, con bufanda roja, en la nieve; un destello azul brillante le cae en el pecho, sin herida.",
+    "c": [
+     "kay"
+    ]
+   },
+   {
+    "t": "{kay} se volvió frío y gruñón. Ya no quería jugar con {gerda}.",
+    "e": "Kay se aparta con los brazos cruzados; Gerda, con abrigo azul marino, le tiende una rosa, triste.",
+    "c": [
+     "kay",
+     "gerda"
+    ]
+   },
+   {
+    "t": "Entonces llegó un trineo blanco. ¡Era la Reina de las Nieves {reina}! Y se llevó a {kay}.",
+    "e": "plaza nevada. Un gran trineo blanco se eleva; la Reina, con abrigo y gorro de piel blanca, seria pero no aterradora; Kay detrás.",
+    "c": [
+     "reina",
+     "kay"
+    ]
+   },
+   {
+    "t": "{gerda} salió a buscarlo. Preguntó a las flores, a los pájaros y al viento.",
+    "e": "Gerda en una barquita por un río lleno de flores, hablando con un cuervo.",
+    "c": [
+     "gerda"
+    ]
+   },
+   {
+    "t": "En el bosque conoció a la niña bandida {bandida}. «Te dejo mi reno», le dijo.",
+    "e": "cueva acogedora con una hoguera. La niña bandida, con gorro de lana y pelo revuelto, sonríe; el reno asoma al fondo.",
+    "c": [
+     "bandida",
+     "gerda"
+    ]
+   },
+   {
+    "t": "El reno {reno} corrió y corrió por la nieve. ¡Allí estaba el palacio de hielo!",
+    "e": "Gerda montada en el reno bajo una aurora boreal; al fondo, un palacio de hielo azul.",
+    "c": [
+     "reno",
+     "gerda"
+    ]
+   },
+   {
+    "t": "Dentro estaba {kay}, solo y tiritando. {gerda} corrió y lo abrazó muy fuerte.",
+    "e": "sala de hielo. Gerda abraza a Kay, sentado sobre un lago helado.",
+    "c": [
+     "kay",
+     "gerda"
+    ]
+   },
+   {
+    "t": "Una lágrima de {gerda} cayó sobre {kay}. ¡La chispa de hielo se derritió!",
+    "e": "un brillo cálido sale de donde cae la lágrima; Kay sonríe, despierto.",
+    "c": [
+     "gerda",
+     "kay"
+    ]
+   },
+   {
+    "t": "Los dos volvieron a casa con la abuela {abuela}. Y colorín colorado, este cuento se ha acabado.",
+    "e": "buhardilla con rosas en flor; la abuela sirve chocolate caliente a Gerda y a Kay.",
+    "c": [
+     "gerda",
+     "kay",
+     "abuela"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "el-gigante-egoista",
+  "title": "El gigante egoísta",
+  "moral": "compartir es lo que hace florecer las cosas.",
+  "cast": [
+   {
+    "id": "gigante",
+    "tipo": "as",
+    "label": "el gigante",
+    "animal": false
+   },
+   {
+    "id": "pequeno",
+    "tipo": "as",
+    "label": "el niño chico",
+    "animal": false
+   },
+   {
+    "id": "nina",
+    "tipo": "as",
+    "label": "la niña mayor",
+    "animal": false
+   }
+  ],
+  "pages": [
+   {
+    "t": "Los niños jugaban en el jardín del gigante. ¡Era el jardín más bonito!",
+    "e": "jardín luminoso con melocotoneros en flor. La niña mayor empuja en un columpio al niño chico; otros niños juegan de lejos.",
+    "c": [
+     "nina",
+     "pequeno"
+    ]
+   },
+   {
+    "t": "Un día volvió el gigante {gigante}. «¡Fuera de mi jardín!», gritó.",
+    "e": "el gigante, grande pero de cara redonda, con capa marrón, grita con las manos en la cintura; los niños huyen, pequeñitos.",
+    "c": [
+     "gigante"
+    ]
+   },
+   {
+    "t": "Construyó un muro muy alto. Era un gigante muy egoísta.",
+    "e": "el gigante cuelga un cartel en un muro de piedra, con el ceño fruncido.",
+    "c": [
+     "gigante"
+    ]
+   },
+   {
+    "t": "Llegó la primavera, pero en su jardín seguía el invierno. ¡Todo estaba nevado!",
+    "e": "fuera del muro, prados con flores; dentro, todo nevado. El gigante tirita en su ventana con una manta.",
+    "c": [
+     "gigante"
+    ]
+   },
+   {
+    "t": "Una mañana, un pajarito cantó. Los niños habían entrado por un agujero del muro.",
+    "e": "un pajarito canta en la ventana; el gigante se asoma, sorprendido. Niños entrando por un agujero, de lejos.",
+    "c": [
+     "gigante"
+    ]
+   },
+   {
+    "t": "¡Y los árboles se llenaron de flores! La primavera había vuelto con ellos.",
+    "e": "el jardín florecido de golpe; la niña mayor y el niño chico, sentados en una rama, ríen.",
+    "c": [
+     "nina",
+     "pequeno"
+    ]
+   },
+   {
+    "t": "Pero el niño chico {pequeno} no podía subir a su árbol. Lloraba bajito.",
+    "e": "rincón con un árbol aún nevado; el niño chico, con jersey rojo, estira los brazos hacia una rama.",
+    "c": [
+     "pequeno"
+    ]
+   },
+   {
+    "t": "El gigante {gigante} lo vio y sintió pena. «¡Qué egoísta he sido!», dijo.",
+    "e": "el gigante, en la ventana, se lleva la mano al pecho; abajo, el niño chico llora.",
+    "c": [
+     "gigante",
+     "pequeno"
+    ]
+   },
+   {
+    "t": "Bajó despacito y subió al niño al árbol. ¡Y el árbol floreció!",
+    "e": "el gigante sube con cuidado al niño a una rama que se llena de flores en ese momento.",
+    "c": [
+     "gigante",
+     "pequeno"
+    ]
+   },
+   {
+    "t": "La niña mayor {nina} preguntó: «¿Ya no eres egoísta?» «¡Ya no!» Y el gigante tiró el muro.",
+    "e": "el muro caído en piedras; la niña mayor, con trenza a la espalda, sonríe al gigante.",
+    "c": [
+     "nina",
+     "gigante"
+    ]
+   },
+   {
+    "t": "Desde entonces juegan todos juntos en el jardín. Y colorín colorado, este cuento se ha acabado.",
+    "e": "el gigante, sentado en la hierba, juega al corro con los niños.",
+    "c": [
+     "gigante",
+     "pequeno",
+     "nina"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "el-zapatero-y-los-duendes",
+  "title": "El zapatero y los duendes",
+  "moral": "quien ayuda recibe ayuda, y dar las gracias es el mejor regalo.",
+  "cast": [
+   {
+    "id": "zapatero",
+    "tipo": "as",
+    "label": "el abuelo",
+    "animal": false
+   },
+   {
+    "id": "nieta",
+    "tipo": "as",
+    "label": "la nieta",
+    "animal": false
+   },
+   {
+    "id": "duende1",
+    "tipo": "as",
+    "label": "el duende chico",
+    "animal": false
+   },
+   {
+    "id": "duende2",
+    "tipo": "as",
+    "label": "el duende saltarín",
+    "animal": false
+   }
+  ],
+  "pages": [
+   {
+    "t": "El abuelo {zapatero} era zapatero. Vivía con la nieta {nieta} y eran muy pobres.",
+    "e": "taller pequeño y ordenado. El abuelo, con delantal de cuero y bigote blanco, y la nieta, con trenzas, junto a una mesa casi vacía.",
+    "c": [
+     "zapatero",
+     "nieta"
+    ]
+   },
+   {
+    "t": "Solo les quedaba cuero para un par de zapatos. Lo dejaron en la mesa.",
+    "e": "el abuelo deja un trozo de cuero cortado sobre la mesa; la nieta sostiene una vela.",
+    "c": [
+     "zapatero",
+     "nieta"
+    ]
+   },
+   {
+    "t": "¡Por la mañana, los zapatos estaban hechos! «¿Quién los ha cosido?», dijo la nieta.",
+    "e": "luz de mañana. La nieta sostiene unos zapatos rojos relucientes; el abuelo se rasca la cabeza.",
+    "c": [
+     "nieta",
+     "zapatero"
+    ]
+   },
+   {
+    "t": "Los vendieron y compraron más cuero. ¡Y cada mañana había más zapatos!",
+    "e": "la tienda llena de zapatos en estantes; el abuelo y la nieta, contentos.",
+    "c": [
+     "zapatero",
+     "nieta"
+    ]
+   },
+   {
+    "t": "Una noche se escondieron detrás de una cortina. ¿Quién vendría?",
+    "e": "el abuelo y la nieta asoman la cabeza detrás de una cortina de flores, de noche.",
+    "c": [
+     "nieta",
+     "zapatero"
+    ]
+   },
+   {
+    "t": "¡Por la chimenea bajaron dos duendes! El duende chico {duende1} y el duende saltarín {duende2}.",
+    "e": "dos duendecillos diminutos bajan por la chimenea, con ropa marrón remendada y descalzos.",
+    "c": [
+     "duende1",
+     "duende2"
+    ]
+   },
+   {
+    "t": "Cosían muy deprisa: tic, tac, tic, tac. Pero llevaban ropa vieja y rota.",
+    "e": "primer plano de la mesa; los duendes cosen un zapato enorme para ellos, concentrados.",
+    "c": [
+     "duende1",
+     "duende2"
+    ]
+   },
+   {
+    "t": "«Vamos a hacerles un regalo», dijo la nieta {nieta}. Cosieron ropa y zapatitos diminutos.",
+    "e": "la nieta cose un chaleco verde diminuto; el abuelo enseña un zapatito del tamaño de una nuez.",
+    "c": [
+     "nieta",
+     "zapatero"
+    ]
+   },
+   {
+    "t": "Esa noche, los duendes vieron la ropa nueva. ¡Qué contentos se pusieron!",
+    "e": "los duendes, ya vestidos con chalecos verdes, gorritos rojos y zapatitos, saltan de alegría.",
+    "c": [
+     "duende1",
+     "duende2"
+    ]
+   },
+   {
+    "t": "Bailaron encima de la mesa. ¡Y se fueron por la chimenea!",
+    "e": "los dos duendes bailan sobre la mesa y saludan desde la chimenea.",
+    "c": [
+     "duende2",
+     "duende1"
+    ]
+   },
+   {
+    "t": "El abuelo {zapatero} y la nieta les dejan galletas cada invierno. Y colorín colorado, este cuento se ha acabado.",
+    "e": "taller en Navidad; el abuelo y la nieta dejan un platito de galletas junto a la chimenea.",
+    "c": [
+     "zapatero",
+     "nieta"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "la-olla-magica",
+  "title": "La olla mágica",
+  "moral": "las palabras importantes hay que aprenderlas bien.",
+  "cast": [
+   {
+    "id": "nina",
+    "tipo": "as",
+    "label": "la niña",
+    "animal": false
+   },
+   {
+    "id": "madre",
+    "tipo": "as",
+    "label": "su madre",
+    "animal": false
+   },
+   {
+    "id": "anciana",
+    "tipo": "as",
+    "label": "la anciana",
+    "animal": false
+   },
+   {
+    "id": "alcalde",
+    "tipo": "as",
+    "label": "el alcalde",
+    "animal": false
+   }
+  ],
+  "pages": [
+   {
+    "t": "La niña {nina} y su madre {madre} eran muy pobres. No tenían nada para cenar.",
+    "e": "cocina sencilla con una mesa vacía; la niña, con vestido de cuadros, y su madre, con delantal azul, se miran.",
+    "c": [
+     "nina",
+     "madre"
+    ]
+   },
+   {
+    "t": "La niña fue al bosque. Allí, la anciana {anciana} le regaló una olla mágica.",
+    "e": "claro del bosque. La anciana, con pañuelo de flores, pone una ollita de barro en las manos de la niña.",
+    "c": [
+     "anciana",
+     "nina"
+    ]
+   },
+   {
+    "t": "«Si dices \"¡Ollita, cuece!\", hace papilla. Si dices \"¡Ollita, para!\", se para.»",
+    "e": "la anciana, sonriente, levanta un dedo; la niña escucha con mucha atención.",
+    "c": [
+     "anciana",
+     "nina"
+    ]
+   },
+   {
+    "t": "En casa, la niña dijo: «¡Ollita, cuece!». ¡Y salió una papilla riquísima!",
+    "e": "la ollita burbujea llena de papilla dorada; la niña y su madre, con cucharas, sonríen.",
+    "c": [
+     "nina",
+     "madre"
+    ]
+   },
+   {
+    "t": "«¡Ollita, para!», dijo la niña. Y la olla se paró.",
+    "e": "la niña, con las manos en la cintura, habla a la olla, que deja de burbujear.",
+    "c": [
+     "nina"
+    ]
+   },
+   {
+    "t": "Un día, la niña salió. Su madre {madre} tenía hambre y dijo: «¡Ollita, cuece!»",
+    "e": "la madre, sola en la cocina, habla a la olla; por la ventana se ve a la niña alejarse.",
+    "c": [
+     "madre"
+    ]
+   },
+   {
+    "t": "Pero no se acordaba de cómo pararla. ¡Y la olla no paraba!",
+    "e": "la olla rebosa; la madre, con una cuchara de palo en alto, pone cara cómica de apuro.",
+    "c": [
+     "madre"
+    ]
+   },
+   {
+    "t": "La papilla llenó la cocina. ¡Y luego la calle y la plaza!",
+    "e": "un río de papilla amarilla baja por la calle; la madre corre detrás.",
+    "c": [
+     "madre"
+    ]
+   },
+   {
+    "t": "«¡Ay, ay, ay! ¿De dónde sale tanta papilla?», gritaba el alcalde {alcalde}.",
+    "e": "plaza inundada de papilla. El alcalde, con chistera y banda, levanta los brazos; niños y perros chapotean, de lejos.",
+    "c": [
+     "alcalde"
+    ]
+   },
+   {
+    "t": "Entonces volvió la niña {nina} y gritó: «¡Ollita, para!». ¡Y la olla se paró!",
+    "e": "la niña, en la puerta de casa, grita con las manos alrededor de la boca; la madre, aliviada.",
+    "c": [
+     "nina",
+     "madre"
+    ]
+   },
+   {
+    "t": "Todo el pueblo comió papilla durante una semana. Y colorín colorado, este cuento se ha acabado.",
+    "e": "fiesta en la plaza; la niña, su madre y el alcalde comen papilla con cucharas gigantes, riendo.",
+    "c": [
+     "nina",
+     "madre",
+     "alcalde"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "garbancito",
+  "title": "Garbancito",
+  "moral": "ser pequeño no impide ser valiente.",
+  "cast": [
+   {
+    "id": "garbancito",
+    "tipo": "nombre",
+    "label": "Garbancito",
+    "animal": false
+   },
+   {
+    "id": "madre",
+    "tipo": "as",
+    "label": "su madre",
+    "animal": false
+   },
+   {
+    "id": "padre",
+    "tipo": "as",
+    "label": "su padre",
+    "animal": false
+   },
+   {
+    "id": "tendero",
+    "tipo": "as",
+    "label": "el tendero",
+    "animal": false
+   },
+   {
+    "id": "buey",
+    "tipo": "as",
+    "label": "el buey",
+    "animal": true
+   }
+  ],
+  "pages": [
+   {
+    "t": "{garbancito} era tan pequeño como un garbanzo. Pero era muy valiente.",
+    "e": "cocina de una casita blanca. Garbancito, diminuto, con boina roja, de pie sobre la mesa junto a un garbanzo de verdad; sus padres lo miran sonriendo.",
+    "c": [
+     "garbancito"
+    ]
+   },
+   {
+    "t": "Para que no lo pisaran, cantaba: «Pachín, pachín, pachín, ¡mirad dónde pisáis!»",
+    "e": "Garbancito camina por la calle cantando, con los brazos en alto; un vecino se para justo a tiempo.",
+    "c": [
+     "garbancito"
+    ]
+   },
+   {
+    "t": "Un día, su madre {madre} necesitaba azafrán. «¡Voy yo a la tienda!», dijo {garbancito}.",
+    "e": "la madre, con pañuelo, le da una moneda a Garbancito, que se la pone en la cabeza como un sombrero.",
+    "c": [
+     "madre",
+     "garbancito"
+    ]
+   },
+   {
+    "t": "El tendero {tendero} no lo veía. «¡Aquí abajo, en el saco!», gritó {garbancito}.",
+    "e": "ultramarinos antiguo. El tendero, con bata gris, busca por el mostrador; Garbancito saluda desde un saco de lentejas.",
+    "c": [
+     "tendero",
+     "garbancito"
+    ]
+   },
+   {
+    "t": "Otro día fue al campo a ver a su padre {padre}. ¡Y empezó a llover!",
+    "e": "camino entre huertos bajo la lluvia; Garbancito, con una cestita, mira las nubes.",
+    "c": [
+     "garbancito"
+    ]
+   },
+   {
+    "t": "{garbancito} se escondió debajo de una col. Y se quedó dormido.",
+    "e": "Garbancito, acurrucado y sonriente bajo una enorme hoja de col.",
+    "c": [
+     "garbancito"
+    ]
+   },
+   {
+    "t": "Llegó el buey {buey} y… ¡ñam! ¡Se comió la col con {garbancito} dentro!",
+    "e": "el buey, grandote y bonachón, mastica la col con los ojos cerrados de gusto.",
+    "c": [
+     "buey"
+    ]
+   },
+   {
+    "t": "Sus padres lo buscaban: «¿Dónde estás?». «¡En la barriga del buey!»",
+    "e": "el padre, con sombrero de paja, y la madre miran asombrados al buey, que rumia tan tranquilo.",
+    "c": [
+     "padre",
+     "madre",
+     "buey"
+    ]
+   },
+   {
+    "t": "Su padre {padre} le hizo cosquillas al buey con una pluma.",
+    "e": "el padre acerca una pluma de gallina a la nariz del buey, que arruga el hocico.",
+    "c": [
+     "padre",
+     "buey"
+    ]
+   },
+   {
+    "t": "¡Aaachís! El buey estornudó y {garbancito} salió volando por el aire.",
+    "e": "el buey estornuda con cara cómica; Garbancito vuela feliz por el aire.",
+    "c": [
+     "buey",
+     "garbancito"
+    ]
+   },
+   {
+    "t": "Aterrizó en el sombrero de su padre. Y colorín colorado, este cuento se ha acabado.",
+    "e": "Garbancito, de pie en el sombrero de paja del padre, saluda; la madre ríe a su lado.",
+    "c": [
+     "garbancito",
+     "padre",
+     "madre"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "gulliver-en-liliput",
+  "title": "Gulliver en Liliput",
+  "moral": "no importa si eres grande o pequeño; pelearse por tonterías no tiene ningún sentido.",
+  "cast": [
+   {
+    "id": "gulliver",
+    "tipo": "nombre",
+    "label": "Gulliver",
+    "animal": false
+   },
+   {
+    "id": "emperador",
+    "tipo": "as",
+    "label": "el emperador",
+    "animal": false
+   },
+   {
+    "id": "nina",
+    "tipo": "as",
+    "label": "la niña",
+    "animal": false
+   }
+  ],
+  "pages": [
+   {
+    "t": "{gulliver} era marinero. Una tormenta hundió su barco, y nadó hasta una playa.",
+    "e": "playa de noche con el mar ya en calma. Gulliver, con casaca azul, sale del agua, cansado.",
+    "c": [
+     "gulliver"
+    ]
+   },
+   {
+    "t": "Se quedó dormido en la arena. Al despertar, ¡estaba atado al suelo!",
+    "e": "Gulliver atado con cuerdecitas, levantando la cabeza sorprendido.",
+    "c": [
+     "gulliver"
+    ]
+   },
+   {
+    "t": "Unos hombrecillos chiquititos lo habían atado. ¡Había llegado a Liliput!",
+    "e": "cientos de liliputienses diminutos alrededor de Gulliver, de lejos; uno, con casco, sobre su barriga.",
+    "c": [
+     "gulliver"
+    ]
+   },
+   {
+    "t": "«No os haré daño», dijo {gulliver} muy bajito. «Solo tengo mucha hambre.»",
+    "e": "Gulliver habla con cuidado a los liliputienses, que suben escaleras con cestos de pan.",
+    "c": [
+     "gulliver"
+    ]
+   },
+   {
+    "t": "El emperador {emperador} mandó que lo soltaran. ¡Y le dieron mil panecillos!",
+    "e": "el emperador, con capa morada y corona pequeña, señala desde un balcón; Gulliver come panecillos diminutos.",
+    "c": [
+     "emperador",
+     "gulliver"
+    ]
+   },
+   {
+    "t": "La niña {nina} le enseñó su idioma. Se sentaba en la mano de {gulliver}.",
+    "e": "atardecer. Gulliver sostiene en la palma a la niña liliputiense, con delantal amarillo, que le cuenta algo.",
+    "c": [
+     "nina",
+     "gulliver"
+    ]
+   },
+   {
+    "t": "Un día, el emperador estaba preocupado. «¡Los vecinos quieren pelear con nosotros!»",
+    "e": "el emperador, de pie en una mesa, preocupado; Gulliver, agachado, lo escucha.",
+    "c": [
+     "emperador",
+     "gulliver"
+    ]
+   },
+   {
+    "t": "«¿Por qué?», preguntó {gulliver}. «¡Porque rompen los huevos por el otro lado!»",
+    "e": "el emperador sostiene un huevo con cara muy seria; Gulliver contiene la risa.",
+    "c": [
+     "gulliver",
+     "emperador"
+    ]
+   },
+   {
+    "t": "{gulliver} se rio. Cruzó el mar andando y trajo todos los barcos.",
+    "e": "Gulliver vadea el mar, con el agua por las rodillas, tirando de muchos barquitos con una cuerda.",
+    "c": [
+     "gulliver"
+    ]
+   },
+   {
+    "t": "«No os peleéis por un huevo», les dijo. ¡Y todos hicieron las paces!",
+    "e": "Gulliver junta a los dos emperadores diminutos, que se dan la mano.",
+    "c": [
+     "gulliver",
+     "emperador"
+    ]
+   },
+   {
+    "t": "La niña {nina} le regaló un pañuelito para el viaje. Y colorín colorado, este cuento se ha acabado.",
+    "e": "orilla al amanecer. Gulliver, en su barca, sostiene un pañuelito; la niña y el emperador dicen adiós desde el muelle.",
+    "c": [
+     "nina",
+     "gulliver",
+     "emperador"
+    ]
+   }
+  ]
+ }
+]

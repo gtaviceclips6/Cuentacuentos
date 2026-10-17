@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "Cuentacuentos",
+    "slug": "cuentacuentos",
+    "scheme": "cuentacuentos",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.cuentacuentos.app"
+    },
+    "android": {
+      "package": "com.cuentacuentos.app"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Cuentacuentos usa tus fotos para poner la cara de tu familia en los cuentos."
+        }
+      ],
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Cuentacuentos usa el micrófono solo para notar cuándo soplas en las actividades del cuento. No graba nada."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}
