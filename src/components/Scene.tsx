@@ -57,7 +57,7 @@ function Illustrated({ tale, index, cfg, img, still }: { tale: Tale; index: numb
   }, [drift, still]);
 
   // Cómo cae el dibujo en la pantalla con resizeMode «cover».
-  const src = Image.resolveAssetSource(img);
+  const src = typeof Image.resolveAssetSource === "function" ? Image.resolveAssetSource(img) : null;
   const iw = src?.width || 848;
   const ih = src?.height || 1264;
   const k = box.w ? Math.max(box.w / iw, box.h / ih) : 0;
@@ -84,7 +84,12 @@ function Illustrated({ tale, index, cfg, img, still }: { tale: Tale; index: numb
           },
         ]}
       >
-        <Image source={img} style={StyleSheet.absoluteFill} resizeMode="cover" />
+        {/* El dibujo se coloca con las mismas cuentas que las caras, para que siempre coincidan. */}
+        <Image
+          source={img}
+          style={k > 0 ? { position: "absolute", left: dx, top: dy, width: iw * k, height: ih * k } : StyleSheet.absoluteFill}
+          resizeMode={k > 0 ? "stretch" : "cover"}
+        />
         {k > 0 && withFace.map((s) => (
           <FacePatch
             key={s.id}
