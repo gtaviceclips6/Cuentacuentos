@@ -28,4 +28,4 @@ Este repositorio es la fuente de verdad del código. Las decisiones de producto 
 - `npm install` y luego `npx expo install --fix` para alinear versiones con el SDK.
 - `npx expo start` y escanear el QR con Expo Go.
 - `npm run typecheck` antes de subir cambios.
-- La voz usa `expo-speech` (voz del sistema). El soplido usa el micrófono con `expo-av` solo para medir el volumen; no se graba nada.
+- La voz usa `expo-speech` (voz del sistema). El soplido usa el micrófono con `expo-audio` solo para medir el volumen; no se graba nada.

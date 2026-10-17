@@ -1,4 +1,4 @@
-import { Audio } from "expo-av";
+import { RecordingPresets, requestRecordingPermissionsAsync, setAudioModeAsync, useAudioRecorder } from "expo-audio";
 import * as Haptics from "expo-haptics";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Animated, Easing, PanResponder, Pressable, StyleSheet, Text, View, type LayoutChangeEvent } from "react-native";
@@ -27,6 +27,7 @@ export function ActivityLayer({ activity, onDone, onSkip }: { activity: Activity
   const lastRub = useRef<{ x: number; y: number } | null>(null);
   const appear = useRef(new Animated.Value(0)).current;
   const pid = useRef(0);
+  const recorder = useAudioRecorder({ ...RecordingPresets.LOW_QUALITY, isMeteringEnabled: true });
   const doneRef = useRef(false);
   const sizeRef = useRef({ w: 0, h: 0 });
   const targetRef = useRef({ x: 0, y: 0 });
@@ -88,31 +89,30 @@ export function ActivityLayer({ activity, onDone, onSkip }: { activity: Activity
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Soplar: el micrófono mide el volumen; un soplido fuerte llena la barra. No se graba nada.
+  // Soplar: el micrófono mide el volumen; un soplido fuerte llena la barra. No se guarda nada.
   useEffect(() => {
     if (activity.kind !== "blow") return;
-    let rec: Audio.Recording | null = null;
     let alive = true;
+    let poll: ReturnType<typeof setInterval> | undefined;
     (async () => {
-      const perm = await Audio.requestPermissionsAsync();
+      const perm = await requestRecordingPermissionsAsync();
       if (!perm.granted) { setMicOff(true); return; }
-      await Audio.setAudioModeAsync({ allowsRecordingIOS: true, playsInSilentModeIOS: true });
-      const { recording } = await Audio.Recording.createAsync(
-        { ...Audio.RecordingOptionsPresets.LOW_QUALITY, isMeteringEnabled: true },
-        (s) => {
-          if (alive && s.isRecording && typeof s.metering === "number" && s.metering > -20) {
-            add(0.05, Math.random() * sizeRef.current.w * 0.3, sizeRef.current.h * (0.3 + Math.random() * 0.5), 2);
-          }
-        },
-        100,
-      );
-      rec = recording;
-      if (!alive) rec.stopAndUnloadAsync().catch(() => {});
+      await setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true });
+      await recorder.prepareToRecordAsync();
+      if (!alive) return;
+      recorder.record();
+      poll = setInterval(() => {
+        const level = recorder.getStatus().metering;
+        if (alive && typeof level === "number" && level > -20) {
+          add(0.05, Math.random() * sizeRef.current.w * 0.3, sizeRef.current.h * (0.3 + Math.random() * 0.5), 2);
+        }
+      }, 100);
     })().catch(() => setMicOff(true));
     return () => {
       alive = false;
-      rec?.stopAndUnloadAsync().catch(() => {});
-      Audio.setAudioModeAsync({ allowsRecordingIOS: false }).catch(() => {});
+      if (poll) clearInterval(poll);
+      recorder.stop().catch(() => {});
+      setAudioModeAsync({ allowsRecording: false }).catch(() => {});
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activity.kind]);
