@@ -14,5 +14,7 @@ export const IMAGES: Record<string, Record<number, ImageSourcePropType>> = {
     7: require("../../assets/tales/la-olla-magica/07.jpg"),
     8: require("../../assets/tales/la-olla-magica/08.jpg"),
     9: require("../../assets/tales/la-olla-magica/09.jpg"),
+    10: require("../../assets/tales/la-olla-magica/10.jpg"),
+    11: require("../../assets/tales/la-olla-magica/11.jpg"),
   },
 };
