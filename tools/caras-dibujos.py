@@ -43,7 +43,9 @@ for d in sorted(glob.glob(os.path.join(ROOT, "assets/tales/*"))):
             found.append({"x": round(float(fc[0] / w), 4), "y": round(float(fc[1] / h), 4),
                           "w": round(float(fc[2] / w), 4), "h": round(float(fc[3] / h), 4),
                           "ex": round(float(ex / w), 4), "ey": round(float(em[1] / h), 4),
-                          "a": round(float(ang), 3), "skin": f"#{r:02x}{g:02x}{b:02x}"})
+                          "a": round(float(ang), 3), "skin": f"#{r:02x}{g:02x}{b:02x}",
+                          # Cara muy de lado (ojos muy juntos para su ancho): una foto de frente no encaja.
+                          "side": bool(fc[2] / max(1.0, math.hypot(*(le - re))) > 3.0)})
         found.sort(key=lambda r: r["x"])
         cast = tales[slug]["pages"][n - 1]["c"] if n <= len(tales[slug]["pages"]) else []
         if len(found) != len(cast):

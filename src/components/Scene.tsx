@@ -10,7 +10,7 @@ import { color, font, hsl, hueOf } from "../theme";
 import { Face } from "./Face";
 
 /** Cara del dibujo: recuadro, punto entre los ojos (ex, ey), inclinación (a) y color de la piel pintada. */
-type Slot = { id: string; x: number; y: number; w: number; h: number; ex?: number; ey?: number; a?: number; skin?: string };
+type Slot = { id: string; x: number; y: number; w: number; h: number; ex?: number; ey?: number; a?: number; skin?: string; side?: boolean };
 const SLOTS = FACE_SLOTS as Record<string, Record<string, Slot[]>>;
 
 /**
@@ -66,7 +66,8 @@ function Illustrated({ tale, index, cfg, img, still }: { tale: Tale; index: numb
   const dy = (box.h - ih * k) / 2;
 
   const slots = SLOTS[tale.slug]?.[String(index + 1)] ?? [];
-  const withFace = slots.filter((s) => cfg[s.id]?.photo && cfg[s.id]?.mode !== "nombre");
+  // Las caras muy de lado no se cambian (una foto de frente ahí queda mal): esa persona sale en medallón.
+  const withFace = slots.filter((s) => !s.side && cfg[s.id]?.photo && cfg[s.id]?.mode !== "nombre");
   const pasted = new Set(withFace.map((s) => s.id));
   // Personajes con foto que no tienen sitio en este dibujo: salen en medallón abajo.
   const medals = tale.pages[index].c.filter((id) => !pasted.has(id) && cfg[id]?.photo && cfg[id]?.mode !== "nombre");
