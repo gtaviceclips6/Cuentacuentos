@@ -1,7 +1,8 @@
-// Reparto de cada cuento: quién hace de quién. Se guarda en memoria mientras la app está abierta.
+// Reparto de cada cuento: quién hace de quién. Se guarda en el móvil y se recupera al abrir la app.
 // Las fotos se quedan en el móvil (solo se guarda la ruta local).
-import React, { createContext, useCallback, useContext, useMemo, useState } from "react";
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import type { CastMember, Tale } from "../data/tales";
+import { loadCast, saveCast } from "./storage";
 
 export type Mode = "cara" | "ambos" | "nombre"; // solo cara (por defecto) · cara y nombre · solo nombre
 export type Role = { mode: Mode; name: string; photo: string | null };
@@ -17,8 +18,12 @@ const blank = (tale: Tale): CastConfig =>
   Object.fromEntries(tale.cast.map((c) => [c.id, { mode: "cara", name: "", photo: null } as Role]));
 
 export function CastProvider({ children }: { children: React.ReactNode }) {
-  const [all, setAll] = useState<Record<string, CastConfig>>({});
-  const get = useCallback((tale: Tale) => all[tale.slug] ?? blank(tale), [all]);
+  const [all, setAll] = useState<Record<string, CastConfig>>(() => loadCast<Record<string, CastConfig>>());
+  useEffect(() => {
+    const t = setTimeout(() => saveCast(all), 400); // espera a que termine de escribir el nombre
+    return () => clearTimeout(t);
+  }, [all]);
+  const get = useCallback((tale: Tale) => ({ ...blank(tale), ...all[tale.slug] }), [all]);
   const set = useCallback((slug: string, id: string, patch: Partial<Role>) => {
     setAll((prev) => {
       const cur = prev[slug] ?? {};

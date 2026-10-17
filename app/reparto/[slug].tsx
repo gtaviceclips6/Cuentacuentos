@@ -5,6 +5,7 @@ import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, 
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Face } from "../../src/components/Face";
 import { cropFace } from "../../src/lib/faceCrop";
+import { keepPhoto } from "../../src/state/storage";
 import { taleBySlug } from "../../src/data/tales";
 import { useCast, type Mode } from "../../src/state/cast";
 import { color, font, hueOf } from "../../src/theme";
@@ -37,7 +38,7 @@ export default function Reparto() {
     setBusy(id);
     try {
       const crop = await cropFace(uri);
-      cast.set(tale!.slug, id, { photo: crop.uri });
+      cast.set(tale!.slug, id, { photo: keepPhoto(crop.uri, tale!.slug, id, cfg[id]?.photo) });
       if (!crop.found) setNotice("No he encontrado ninguna cara en esa foto y he puesto el centro. Si no queda bien, prueba con una foto donde se vea la cara de frente.");
     } catch {
       setNotice("No he podido preparar esa foto. Prueba con otra.");

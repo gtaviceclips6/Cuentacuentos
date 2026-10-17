@@ -29,3 +29,10 @@ Este repositorio es la fuente de verdad del código. Las decisiones de producto 
 - `npx expo start` y escanear el QR con Expo Go.
 - `npm run typecheck` antes de subir cambios.
 - La voz usa `expo-speech` (voz del sistema). El soplido usa el micrófono con `expo-audio` solo para medir el volumen; no se graba nada.
+- Fotos: cualquier foto; `src/lib/faceCrop.ts` busca la cara con ML Kit (en el móvil) y la recorta. El reparto y las caras se guardan en el móvil (`src/state/storage.ts`).
+
+## Publicar (el usuario no tiene ordenador: todo desde el sandbox de Expo)
+
+- La app de prueba es un APK propio (perfil `preview`, canal `preview`), no Expo Go.
+- `runtimeVersion` usa `fingerprint`: cambios solo de JS/textos/imágenes → `eas update --channel preview` (llega al abrir la app). Añadir o quitar una librería nativa → nuevo `eas build -p android --profile preview` y reinstalar.
+- `.npmrc` lleva `legacy-peer-deps=true`; el lock que suba EAS debe generarse con él.
