@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import type { CastMember } from "../data/tales";
+import { FACE_OVAL } from "../lib/faceOval";
 import { initialOf, type CastConfig } from "../state/cast";
 import { color, font, hsl } from "../theme";
 
@@ -17,7 +18,11 @@ export function Face({ member, cfg, hue, size = 56 }: { member: CastMember; cfg:
       ]}
     >
       {photo ? (
-        <Image source={{ uri: photo }} style={{ width: size, height: size }} />
+        // Se acerca al óvalo de la cara (el recorte guarda algo de margen alrededor).
+        <Image
+          source={{ uri: photo }}
+          style={{ position: "absolute", width: size / (FACE_OVAL.rx * 2), height: size / (FACE_OVAL.rx * 2), left: size / 2 - (FACE_OVAL.cx * size) / (FACE_OVAL.rx * 2), top: size / 2 - (FACE_OVAL.cy * size) / (FACE_OVAL.rx * 2) }}
+        />
       ) : (
         <Text style={[styles.initial, { fontSize: size * 0.42 }, ghost && { color: color.muted }]}>{initialOf(member, cfg)}</Text>
       )}

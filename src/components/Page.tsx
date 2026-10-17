@@ -1,5 +1,6 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { activityFor } from "../data/activities";
 import type { Tale } from "../data/tales";
 import { fillText, type CastConfig } from "../state/cast";
 import { color, font } from "../theme";
@@ -24,6 +25,11 @@ export function Page({
             ))}
           </Text>
         </LinearGradient>
+      )}
+      {!textHidden && activityFor(tale.slug, index) && (
+        <View style={styles.game} pointerEvents="none">
+          <Text style={styles.gameText}>★ Al acabar de leer, ¡juego!</Text>
+        </View>
       )}
       <Text style={styles.folio}>{index + 1}</Text>
     </View>
@@ -51,6 +57,8 @@ const styles = StyleSheet.create({
   band: { position: "absolute", left: 0, right: 0, top: 0, paddingHorizontal: 20, paddingTop: 18, paddingBottom: 48 },
   text: { fontFamily: font.read, fontSize: 34, lineHeight: 44, color: "#1F2238" },
   on: { backgroundColor: color.highlight },
+  game: { position: "absolute", right: 12, bottom: 34, backgroundColor: color.accent, borderRadius: 999, paddingVertical: 7, paddingHorizontal: 12 },
+  gameText: { fontFamily: font.readBold, fontSize: 14, color: color.accentInk },
   folio: { position: "absolute", right: 16, bottom: 10, fontFamily: font.read, fontSize: 13, color: "#FFFFFF", textShadowColor: "rgba(0,0,0,0.5)", textShadowRadius: 3 },
   end: { alignItems: "center", justifyContent: "center", gap: 14, padding: 24 },
   endEyebrow: { fontFamily: font.readBold, letterSpacing: 2, color: color.muted },

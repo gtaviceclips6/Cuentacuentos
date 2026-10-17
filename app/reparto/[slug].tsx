@@ -4,7 +4,8 @@ import { useState } from "react";
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Face } from "../../src/components/Face";
-import { cropFace } from "../../src/lib/faceCrop";
+import { FaceEditor } from "../../src/components/FaceEditor";
+import { prepareFace, renderFace, type Prepared, type Square } from "../../src/lib/faceCrop";
 import { keepPhoto } from "../../src/state/storage";
 import { taleBySlug } from "../../src/data/tales";
 import { useCast, type Mode } from "../../src/state/cast";
@@ -19,12 +20,13 @@ export default function Reparto() {
   const cast = useCast();
   const [notice, setNotice] = useState("");
   const [busy, setBusy] = useState<string | null>(null);
+  const [editing, setEditing] = useState<{ id: string; label: string; prepared: Prepared } | null>(null);
   if (!tale) return <Missing />;
   const cfg = cast.get(tale);
   const hue = hueOf(tale.slug);
 
-  // Cualquier foto vale: la app busca la cara y la recorta sola (sin la pantalla de recorte del sistema).
-  async function pickPhoto(id: string) {
+  // Cualquier foto vale: la app busca la cara y propone el recorte; el padre lo ajusta con el dedo.
+  async function pickPhoto(id: string, label: string) {
     setNotice("");
     let uri: string;
     try {
@@ -37,14 +39,24 @@ export default function Reparto() {
     }
     setBusy(id);
     try {
-      const crop = await cropFace(uri);
-      cast.set(tale!.slug, id, { photo: keepPhoto(crop.uri, tale!.slug, id, cfg[id]?.photo) });
-      if (!crop.found) setNotice("No he encontrado ninguna cara en esa foto y he puesto el centro. Si no queda bien, prueba con una foto donde se vea la cara de frente.");
+      const prepared = await prepareFace(uri);
+      setEditing({ id, label, prepared });
     } catch {
       setNotice("No he podido preparar esa foto. Prueba con otra.");
     } finally {
       setBusy(null);
     }
+  }
+
+  async function saveFace(s: Square) {
+    if (!editing) return;
+    try {
+      const out = await renderFace(editing.prepared, s);
+      cast.set(tale!.slug, editing.id, { photo: keepPhoto(out, tale!.slug, editing.id, cfg[editing.id]?.photo) });
+    } catch {
+      setNotice("No he podido guardar esa cara. Prueba otra vez.");
+    }
+    setEditing(null);
   }
 
   return (
@@ -56,7 +68,7 @@ export default function Reparto() {
         <View style={{ gap: 4 }}>
           <Text style={styles.eyebrow}>REPARTO</Text>
           <Text style={styles.title}>{tale.title}</Text>
-          <Text style={styles.sub}>Para cada papel: solo la cara, cara y nombre, o solo el nombre. Vale cualquier foto: la app encuentra la cara y la recorta sola. Si no pones foto, sale la inicial.</Text>
+          <Text style={styles.sub}>Para cada papel: solo la cara, cara y nombre, o solo el nombre. Vale cualquier foto: luego colocas la cara en el óvalo y sale dentro del personaje del dibujo. Si no pones foto, sale la inicial.</Text>
         </View>
 
         {tale.cast.map((m) => {
@@ -94,7 +106,7 @@ export default function Reparto() {
                   />
                 )}
                 {wantsFace && (
-                  <Pressable onPress={() => pickPhoto(m.id)} disabled={busy !== null} style={[styles.photo, busy !== null && { opacity: 0.6 }]} accessibilityRole="button">
+                  <Pressable onPress={() => pickPhoto(m.id, m.label)} disabled={busy !== null} style={[styles.photo, busy !== null && { opacity: 0.6 }]} accessibilityRole="button">
                     {busy === m.id ? (
                       <View style={styles.busy}><ActivityIndicator color={color.ink} /><Text style={styles.photoText}>Buscando la cara…</Text></View>
                     ) : (
@@ -114,6 +126,14 @@ export default function Reparto() {
           <Text style={styles.ctaText}>Abrir el cuento</Text>
         </Pressable>
       </ScrollView>
+      {editing && (
+        <FaceEditor
+          prepared={editing.prepared}
+          title={`Cara de ${editing.label}`}
+          onDone={saveFace}
+          onCancel={() => setEditing(null)}
+        />
+      )}
     </SafeAreaView>
   );
 }
