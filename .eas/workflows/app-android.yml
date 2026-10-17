@@ -1,0 +1,14 @@
+# Fabrica la app de Android (APK de prueba) desde GitHub.
+# Usa los créditos de builds de Expo, no los minutos de CI/CD.
+name: App Android de prueba
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  apk:
+    name: APK de prueba
+    type: build
+    params:
+      platform: android
+      profile: preview
