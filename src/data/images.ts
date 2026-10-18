@@ -4,6 +4,9 @@
 import type { ImageSourcePropType } from "react-native";
 
 export const IMAGES: Record<string, Record<number, ImageSourcePropType>> = {
+  "cenicienta": {
+    1: require("../../assets/tales/cenicienta/01.jpg"),
+  },
   "la-olla-magica": {
     1: require("../../assets/tales/la-olla-magica/01.jpg"),
     2: require("../../assets/tales/la-olla-magica/02.jpg"),
