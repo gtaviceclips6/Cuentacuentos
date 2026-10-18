@@ -7,7 +7,9 @@ import { ActivityLayer } from "../../src/components/ActivityLayer";
 import { EndPage, Page } from "../../src/components/Page";
 import { activityFor, type Activity } from "../../src/data/activities";
 import { taleBySlug } from "../../src/data/tales";
+import { silabas as split } from "../../src/lib/silabas";
 import { fillText, useCast } from "../../src/state/cast";
+import { useProgress } from "../../src/state/progress";
 import { color, font } from "../../src/theme";
 
 type Leaf = { index: number; dir: 1 | -1 } | null;
@@ -18,6 +20,8 @@ export default function Reader() {
   const tale = taleBySlug(String(slug));
   const cast = useCast();
   const cfg = tale ? cast.get(tale) : {};
+  const prog = useProgress();
+  const [stars, setStars] = useState(0); // estrellas de este cuento al llegar al final
 
   const [page, setPage] = useState(0);
   const [leaf, setLeaf] = useState<Leaf>(null);
@@ -51,6 +55,26 @@ export default function Reader() {
     Speech.stop();
     setSpeaking(false);
     setHighlight(-1);
+  }
+
+  // Al tocar una palabra, la dice despacio (en modo sílabas, primero sílaba a sílaba: «ca, sa… casa»).
+  function sayWord(i: number, w: string) {
+    if (st.current.leaf || st.current.activity) return;
+    Speech.stop();
+    setSpeaking(false);
+    setHighlight(i);
+    const clean = w.replace(/[^\p{L}-]/gu, "");
+    if (!clean) return setHighlight(-1);
+    const parts = split(clean);
+    const text = prog.silabas && parts.length > 1 ? `${parts.join(", ")}… ${clean}` : clean;
+    Speech.speak(text, {
+      language: "es-ES",
+      voice: voice.current,
+      rate: 0.7,
+      onDone: () => setHighlight((h) => (h === i ? -1 : h)),
+      onStopped: () => setHighlight((h) => (h === i ? -1 : h)),
+      onError: () => setHighlight(-1),
+    });
   }
 
   function listen() {
@@ -159,6 +183,13 @@ export default function Reader() {
     });
   }
 
+  // Una estrella cada vez que se llega al final del cuento.
+  const reachedEnd = !!tale && page >= total;
+  useEffect(() => {
+    if (reachedEnd && tale) setStars(prog.addStar(tale.slug));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [reachedEnd]);
+
   if (!tale) {
     return (
       <SafeAreaView style={[styles.safe, { padding: 24 }]}>
@@ -180,7 +211,20 @@ export default function Reader() {
         <Pressable onPress={() => { stopVoice(); router.back(); }} style={styles.back} accessibilityRole="button">
           <Text style={styles.backText}>← Reparto</Text>
         </Pressable>
-        <Text style={styles.count}>{page < total ? `Página ${page + 1} de ${total}` : "Fin"}</Text>
+        <Pressable
+          onPress={() => prog.setSilabas(!prog.silabas)}
+          style={[styles.syl, prog.silabas && styles.sylOn]}
+          accessibilityRole="switch"
+          accessibilityState={{ checked: prog.silabas }}
+          accessibilityLabel="Leer por sílabas"
+        >
+          <Text style={[styles.sylText, prog.silabas && styles.sylTextOn]}>
+            <Text style={{ color: prog.silabas ? "#FFFFFF" : "#1F2238" }}>sí</Text>
+            <Text style={{ color: prog.silabas ? "#FFE08A" : "#C2410C" }}>la</Text>
+            <Text style={{ color: prog.silabas ? "#FFFFFF" : "#1F2238" }}>bas</Text>
+          </Text>
+        </Pressable>
+        <Text style={styles.count}>{page < total ? `${page + 1} / ${total}` : "Fin"}</Text>
       </View>
 
       <View style={styles.stage} onLayout={(e: LayoutChangeEvent) => setWidth(e.nativeEvent.layout.width)} {...pan.panHandlers}>
@@ -189,9 +233,9 @@ export default function Reader() {
           {/* Hoja de debajo: la que se ve al pasar */}
           <Animated.View style={[StyleSheet.absoluteFill, { transform: [{ scale: zoom.interpolate({ inputRange: [0, 1], outputRange: [1, 1.1] }) }] }]}>
             {atEnd ? (
-              <EndPage tale={tale} onAgain={() => setPage(0)} onOther={() => router.replace("/")} />
+              <EndPage tale={tale} stars={stars} onAgain={() => setPage(0)} onOther={() => router.replace("/")} />
             ) : (
-              <Page tale={tale} index={underIndex} cfg={cfg} highlight={leaf ? -1 : highlight} textHidden={!!activity} />
+              <Page tale={tale} index={underIndex} cfg={cfg} highlight={leaf ? -1 : highlight} textHidden={!!activity} silabas={prog.silabas} onWord={leaf ? undefined : sayWord} />
             )}
           </Animated.View>
           <Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, styles.shade, { opacity: underShade }]} />
@@ -200,7 +244,7 @@ export default function Reader() {
           {leaf && (
             <>
               <Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, styles.leaf, { transform: [{ perspective: 2200 }, { rotateY: front }] }]}>
-                <Page tale={tale} index={leaf.index} cfg={cfg} />
+                <Page tale={tale} index={leaf.index} cfg={cfg} silabas={prog.silabas} />
                 <Animated.View style={[StyleSheet.absoluteFill, styles.shade, { opacity: frontShade }]} />
               </Animated.View>
               <Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, styles.leaf, styles.backside, { transform: [{ perspective: 2200 }, { rotateY: back }] }]} />
@@ -235,6 +279,10 @@ const styles = StyleSheet.create({
   back: { backgroundColor: color.soft, borderRadius: 999, paddingVertical: 8, paddingHorizontal: 14 },
   backText: { fontFamily: font.readBold, color: color.ink },
   count: { fontFamily: font.readBold, color: color.muted },
+  syl: { borderRadius: 999, paddingVertical: 7, paddingHorizontal: 14, backgroundColor: color.soft, borderWidth: 2, borderColor: color.soft },
+  sylOn: { backgroundColor: color.accent, borderColor: color.accent },
+  sylText: { fontFamily: font.readBold, fontSize: 16 },
+  sylTextOn: {},
   stage: { flex: 1, marginHorizontal: 10, marginLeft: 18 },
   spine: { position: "absolute", left: -8, top: 6, bottom: 6, width: 10, borderTopLeftRadius: 6, borderBottomLeftRadius: 6, backgroundColor: color.spine },
   book: { flex: 1, borderTopRightRadius: 16, borderBottomRightRadius: 16, backgroundColor: color.paper, shadowColor: "#000", shadowOpacity: 0.2, shadowRadius: 14, shadowOffset: { width: 0, height: 8 }, elevation: 8 },

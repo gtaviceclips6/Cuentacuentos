@@ -51,3 +51,21 @@ export function keepPhoto(uri: string, slug: string, id: string, previous?: stri
     return uri;
   }
 }
+
+/** Lee un JSON pequeño guardado en el móvil (ajustes, estrellas). */
+export function loadJson<T>(name: string, fallback: T): T {
+  try {
+    const f = new File(Paths.document, name);
+    return f.exists ? { ...fallback, ...(JSON.parse(f.textSync()) as T) } : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+export function saveJson(name: string, data: unknown) {
+  try {
+    new File(Paths.document, name).write(JSON.stringify(data));
+  } catch {
+    // sin guardar: la app sigue funcionando
+  }
+}

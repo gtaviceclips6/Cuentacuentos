@@ -7,6 +7,7 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { CastProvider } from "../src/state/cast";
+import { ProgressProvider } from "../src/state/progress";
 import { color } from "../src/theme";
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
@@ -23,12 +24,14 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <CastProvider>
+        <ProgressProvider>
         <StatusBar style="dark" />
         <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: color.bg } }}>
           <Stack.Screen name="index" />
           <Stack.Screen name="reparto/[slug]" />
           <Stack.Screen name="leer/[slug]" options={{ gestureEnabled: false, animation: "fade" }} />
         </Stack>
+        </ProgressProvider>
       </CastProvider>
     </SafeAreaProvider>
   );
