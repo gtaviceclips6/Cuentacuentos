@@ -9,6 +9,7 @@ export const IMAGES: Record<string, Record<number, ImageSourcePropType>> = {
     3: require("../../assets/tales/cenicienta/03.jpg"),
     4: require("../../assets/tales/cenicienta/04.jpg"),
     5: require("../../assets/tales/cenicienta/05.jpg"),
+    10: require("../../assets/tales/cenicienta/10.jpg"),
   },
   "la-olla-magica": {
     1: require("../../assets/tales/la-olla-magica/01.jpg"),

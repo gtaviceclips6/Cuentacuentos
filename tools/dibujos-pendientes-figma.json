@@ -1,7 +1,6 @@
 {
   "nota": "Dibujos ya generados en Figma (archivo ouSGvz0drgQ1UEeBr6a5fU) el 2026-11-02 que no se pudieron descargar: se agotó el límite de llamadas MCP del plan Starter antes de get_screenshot. Descargarlos con get_screenshot (maxDimension 1264) en vez de volver a generarlos. 'previo' = impresión por la miniatura; revisar igual a tamaño completo y con tools/caras-dibujos.py.",
   "dibujos": [
-    {"nodo": "44:5",  "slug": "cenicienta",         "n": 10, "previo": "probable"},
     {"nodo": "44:6",  "slug": "cenicienta",         "n": 11, "previo": "revisar caras inclinadas"},
     {"nodo": "44:7",  "slug": "cenicienta",         "n": 12, "previo": "probable"},
     {"nodo": "44:8",  "slug": "la-bella-durmiente", "n": 2,  "previo": "revisar: ojos entornados"},
@@ -20,6 +19,7 @@
     {"nodo": "44:25", "slug": "blancanieves",       "n": 8,  "previo": "probable"},
     {"nodo": "44:26", "slug": "blancanieves",       "n": 11, "previo": "probable"}
   ],
+  "limite_figma": "2026-11-05: solo funcionó 1 get_screenshot (44:5, cenicienta 10); el siguiente ya dio el límite del plan Starter. Bajar uno a uno y parar en el primer error.",
   "descartados": "44:3 bella 1 (descargado el 2026-11-03: la bebé tiene los ojos cerrados y, al estar en medio, la cara de la reina caería sobre ella; hay que dibujar a la bebé a la derecha con los ojos abiertos), 44:2 cenicienta 2 (Cenicienta de 3/4), 44:4 cenicienta 8 (farolillos arriba), 44:11 bella 5 (cara pequeña y girada), 44:12 bella 6 (anciana de más), 44:13 bella 7 (princesa tumbada, bebé de más), 44:19 blancanieves 1 (cara repetida en el espejo)",
   "rechazados_por_figma_422": "cenicienta 6, 7, 9; blancanieves 5, 9, 10 (Figma no los genera; probar a reescribir el prompt)"
 }
